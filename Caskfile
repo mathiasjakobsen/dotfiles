@@ -1,0 +1,31 @@
+#!/bin/bash
+
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
+
+apps=(
+  alfred
+  appcleaner
+  cheatsheet
+  copy
+  cyberduck
+  dropbox
+  firefox
+  flash
+  google-drive
+  hipchat
+  iterm2
+  knock
+  rescuetime
+  sequel-pro
+  skype
+  spotify
+  sublime-text
+  teamviewer
+  utorrent
+  vlc
+  whatpulse
+)
+
+brew cask install --appdir="/Applications" ${apps[@]}
+brew cleanup
