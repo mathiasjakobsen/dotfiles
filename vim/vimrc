@@ -1,0 +1,67 @@
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-liquid'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'itchyny/lightline.vim'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'terryma/vim-expand-region'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'roman/golden-ratio'
+Plugin 'honza/vim-snippets'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'SirVer/ultisnips'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-scripts/Solarized'
+Plugin 'groenewege/vim-less'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'benmills/vimux'
+Plugin 'nixon/vim-vmath'
+
+call vundle#end()
+filetype plugin indent on
+
+source ~/.vim/setup/rainbow.vim
+source ~/.vim/setup/basics.vim
+source ~/.vim/setup/goyo.vim
+source ~/.vim/setup/keybindings.vim
+source ~/.vim/setup/autocmd.vim
+source ~/.vim/setup/test_runners.vim
+source ~/.vim/setup/dash.vim
+source ~/.vim/setup/ultisnips.vim
+source ~/.vim/setup/silversearcher.vim
+source ~/.vim/setup/selecta.vim
+source ~/.vim/setup/vimux.vim
+source ~/.vim/setup/lightline.vim
+source ~/.vim/setup/calendar.vim
+source ~/.vim/setup/vimwiki.vim
+
+
+
+let g:syntastic_always_populate_loc_list = 1
+
+
