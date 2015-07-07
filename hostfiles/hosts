@@ -1,0 +1,26 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+
+255.255.255.255	broadcasthost
+127.0.0.1	localhost
+::1	localhost
+fe80::1%lo0	localhost
+
+127.0.0.1	tweaker2
+fe80::1%lo0	tweaker2
+
+127.0.0.1	system
+fe80::1%lo0	system
+
+127.0.0.1	line
+fe80::1%lo0	line
+
+127.0.0.1	test
+fe80::1%lo0	test
+
+127.0.0.1	poi
+fe80::1%lo0	poi
