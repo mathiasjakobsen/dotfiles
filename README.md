@@ -15,7 +15,6 @@ Due to sandbox limitations, these apps should be downloaded from the App Store
 - iWork
 - LanScan
 - XCode
-- iA Writer
 
 # Todo
 - Disable MySQL strict mode in `/usr/local/Cellar/mysql/5.6.xx/my.cnf`
