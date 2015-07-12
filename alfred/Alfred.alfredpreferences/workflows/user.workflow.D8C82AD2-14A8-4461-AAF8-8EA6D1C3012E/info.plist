@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict/>
+	<key>createdby</key>
+	<string>Ulf Wirén-Hallqvist</string>
+	<key>description</key>
+	<string>Show the current calendar week</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Current Calendar Week Inline</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>week</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>require_once('workflows.php');
+$w = new Workflows();
+
+// Change the timezone to your own!
+date_default_timezone_set('Europe/Stockholm');
+$week = date(W);
+
+$w-&gt;result( 'week', '', $week, '', 'icon.png', 'yes', '' );
+
+echo $w-&gt;toxml();</string>
+				<key>title</key>
+				<string>Show Current Calendar Week</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>C4AF35D2-1AEC-4FCF-8297-4DCF952363C0</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>C4AF35D2-1AEC-4FCF-8297-4DCF952363C0</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.uwh.se</string>
+</dict>
+</plist>

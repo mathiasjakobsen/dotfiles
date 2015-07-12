@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>dk.simonbs.Alfred.DRTV</string>
+	<key>connections</key>
+	<dict>
+		<key>81A121EA-1083-4B31-95DE-5F59021FCCBB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CE29B50-3351-4B00-99A3-A0536FB1A4BD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>5F556CCD-47E9-44B7-9385-E197C5775671</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Download program</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Simon Støvring (@simonbs)</string>
+	<key>description</key>
+	<string>Browse and download programs from DR TV</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>DR TV</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>from helper import action_open_program
+
+action_open_program("{query}")</string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1CE29B50-3351-4B00-99A3-A0536FB1A4BD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>dr</string>
+				<key>runningsubtext</key>
+				<string>Please stay awesome while loading...</string>
+				<key>script</key>
+				<string>from helper import helper
+
+print helper("{query}")</string>
+				<key>title</key>
+				<string>Browse DR TV</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>81A121EA-1083-4B31-95DE-5F59021FCCBB</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>from helper import action_download_program
+
+action_download_program("{query}")</string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5F556CCD-47E9-44B7-9385-E197C5775671</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>1CE29B50-3351-4B00-99A3-A0536FB1A4BD</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>5F556CCD-47E9-44B7-9385-E197C5775671</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>81A121EA-1083-4B31-95DE-5F59021FCCBB</key>
+		<dict>
+			<key>ypos</key>
+			<real>70</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://simonbs.dk/</string>
+</dict>
+</plist>

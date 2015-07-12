@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>StephenMillard/AudioNotification</string>
+	<key>connections</key>
+	<dict>
+		<key>237C5FC5-420A-4249-B1A7-EFD3A6CC934C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>06106E64-7CFA-4AC6-ADB2-5B4B20C36890</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2C20AA84-BF0F-4E89-8DD9-733A1602826F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>C9FA1A7D-B3F7-4205-A06F-A6CAC5132C78</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>237C5FC5-420A-4249-B1A7-EFD3A6CC934C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Stephen Millard</string>
+	<key>description</key>
+	<string>Play a sound as a notification</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Sound Notification</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>INP={query}
+WORKFLOWPATH=`pwd`
+
+case "$INP" in
+     *var*)
+		  
+          PATHTOAUDIOFILE="$WORKFLOWPATH/dobedidoh.aiff"
+          ;;
+     totem|rhel)
+          echo "Hey! It is my favorite Server OS!"
+          ;;
+     windows)
+          echo "Very funny..."
+          ;; 
+     *)
+          echo "Hmm, seems i've never used it."
+          ;;
+esac
+
+afplay "$PATHTOAUDIOFILE"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>06106E64-7CFA-4AC6-ADB2-5B4B20C36890</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>snd</string>
+				<key>subtext</key>
+				<string>Play example sound (Sosumi.aiff)</string>
+				<key>text</key>
+				<string>Play a sound notification</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C9FA1A7D-B3F7-4205-A06F-A6CAC5132C78</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>if [ -z "{query}" ]; then
+	echo "Jeg skal vide det!"
+else
+	echo "{query}"
+fi</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>237C5FC5-420A-4249-B1A7-EFD3A6CC934C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Sound Notification Test</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>2C20AA84-BF0F-4E89-8DD9-733A1602826F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>06106E64-7CFA-4AC6-ADB2-5B4B20C36890</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>237C5FC5-420A-4249-B1A7-EFD3A6CC934C</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>2C20AA84-BF0F-4E89-8DD9-733A1602826F</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>C9FA1A7D-B3F7-4205-A06F-A6CAC5132C78</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.thoughtasylum.com</string>
+</dict>
+</plist>
