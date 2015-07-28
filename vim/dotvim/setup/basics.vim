@@ -25,13 +25,7 @@ set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
-
-
-" highlight current line
-set cursorline
-set cursorcolumn
-hi CursorLine cterm=NONE ctermbg=black
-
+set nofoldenable                  " disable folding
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=6                   " Show 3 lines of context around the cursor.

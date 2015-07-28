@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/mathiasjakobsen/Work/cnd_admin/.git'
 let g:netrw_dirhist_2='/Users/mathiasjakobsen/Work/systemet/config/deploy'
 let g:netrw_dirhist_3='/Users/mathiasjakobsen/Work/documentation/APM/PoI/queries'
 let g:netrw_dirhist_4='/Users/mathiasjakobsen/Work/cnd_admin/packages'
 let g:netrw_dirhist_5='/Users/mathiasjakobsen/Work/ruby-renderclient/lib/renderclient'
 let g:netrw_dirhist_6='/Users/mathiasjakobsen/Work/systemet/Application/settings'
+let g:netrw_dirhist_7='/Users/mathiasjakobsen/Work/tweaker2/Packages/Application/ArnsboMedia.Common/Classes/Http/Client'
+let g:netrw_dirhist_8='/Users/mathiasjakobsen/Desktop/test'
