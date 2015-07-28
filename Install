@@ -5,7 +5,6 @@ ROOT=${1:-~}
 
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
-  update_git
   install_packages
 }
 
@@ -38,8 +37,4 @@ function install() {
   ln -nfs $PWD/$1 $TARGET
 }
 
-function update_git {
-  git submodule init
-  git submodule update
-}
 main
