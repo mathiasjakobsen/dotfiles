@@ -1,0 +1,21 @@
+pane	Chef	1	:Main	0	:-	1	:/Users/mathiasjakobsen/Work/chef	1	zsh	:
+pane	Chef	2	:SSH	0	: 	1	:/Users/mathiasjakobsen/Work/chef	1	ssh	:ssh inventio@91.236.186.105
+pane	Chef	3	:Misc	1	:*	1	:/Users/mathiasjakobsen/Work/voiceselector	1	ssh	:ssh root@50.57.88.101
+pane	Systemet	1	:Application	1	:*	1	:/Users/mathiasjakobsen/Work/systemet/Application	1	zsh	:
+pane	Systemet	2	:New Frontend	0	:#	1	:/Users/mathiasjakobsen/Work/systemet/frontend	1	zsh	:
+pane	Systemet	3	:Old Frontend	0	:#	1	:/Users/mathiasjakobsen/Work/systemet/SystemJs	1	zsh	:
+pane	Systemet	4	:Root	0	:#-	1	:/Users/mathiasjakobsen/Work/systemet	1	zsh	:
+pane	Systemet	5	:Server	0	:#	1	:/Users/mathiasjakobsen/Work/systemet	0	zsh	:
+pane	Systemet	5	:Server	0	:#	2	:/Users/mathiasjakobsen/Work/systemet	0	zsh	:
+pane	Systemet	5	:Server	0	:#	3	:/Users/mathiasjakobsen/Work/systemet	0	ruby	:foreman: master   
+pane	Systemet	5	:Server	0	:#	4	:/Users/mathiasjakobsen/Work/systemet	0	zsh	:
+pane	Systemet	5	:Server	0	:#	5	:/Users/mathiasjakobsen	1	memcached	:memcached
+window	Chef	1	0	:-	c0fd,181x45,0,0,0
+window	Chef	2	0	: 	60af,181x45,0,0,10
+window	Chef	3	1	:*	60b1,181x45,0,0,12
+window	Systemet	1	1	:*	c0fe,181x45,0,0,1
+window	Systemet	2	0	:#	c0ff,181x45,0,0,2
+window	Systemet	3	0	:#	c100,181x45,0,0,3
+window	Systemet	4	0	:#-	c101,181x45,0,0,4
+window	Systemet	5	0	:#	a3ef,181x45,0,0[181x22,0,0{90x22,0,0,5,90x22,91,0,6},181x22,0,23{90x22,0,23,7,45x22,91,23,8,44x22,137,23,9}]
+state	Chef	Chef
