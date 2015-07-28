@@ -1,20 +1,21 @@
-# Orion .files
-My personal .files - more than heavily inspired by [@clauswitt](https://github.com/clauswitt) and [@mathiasbynens](https://github.com/mathiasbynes).
+# Dotfiles
+These are my dotfiles. There are many like them, but these ones are mine.
+Inspired by [@ClausWitt](https://github.com/clauswitt) and [@MathiasBynens](https://github.com/mathiasbynens).
+Enter at own risk.
 
-## Run
-1. `./brew.sh` - to install homebrew, packages and application 
-2. `./install-rvm.sh`- to install RVM and some rubies
-3. `./install.sh` - to install .files
-4. `./osx` - to setup OS X settings
+## Install
+- Run `./Install` to install .files
+- Run `./Brewfile` to install homebrew, packages and application 
+- Run `./Caskfile` to install OS X applications from [Caskroom](http://caskroom.io)
+- Run `./NPM` to global install some great NPM packages
+- Party 🎉
 
-## Missing Applications
-Due to sandbox limitations, these apps should be downloaded from the App Store
-
+### App Store Applications
+Due to sandbox limitations, these apps should be downloaded from the App Store.
 - WunderList
 - 1Password
-- iWork
 - LanScan
 - XCode
 
-# Todo
+### Todo
 - Disable MySQL strict mode in `/usr/local/Cellar/mysql/5.6.xx/my.cnf`
