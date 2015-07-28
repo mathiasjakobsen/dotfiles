@@ -4,7 +4,7 @@ TERM=screen-256color-bce
 alias amcloud1='ssh root@cloud1.arnsbomedia.com'
 alias amdb='ssh root@db.arnsbomedia.com'
 alias amsystem='root@system.arnsbomedia.com'
-alias cloud='ssh root@46.101.150.8'
+alias cloud='ssh root@46.101.246.29'
 alias dbslave='ssh 64.49.237.57'
 
 
