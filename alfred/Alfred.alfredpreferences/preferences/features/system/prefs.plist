@@ -4,7 +4,11 @@
 <dict>
 	<key>ejectKeywordEnabled</key>
 	<true/>
-	<key>lockKeywordEnabled</key>
-	<false/>
+	<key>ejectType</key>
+	<integer>2</integer>
+	<key>restartConfirm</key>
+	<true/>
+	<key>shutdownConfirm</key>
+	<true/>
 </dict>
 </plist>
