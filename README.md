@@ -4,18 +4,19 @@ Inspired by [@ClausWitt](https://github.com/clauswitt) and [@MathiasBynens](http
 Enter at own risk.
 
 ## Install
+**Full setup**
+- Run `rake` to setup evertything
+
+**Seperate setup**
 - Run `./Install` to install .files
 - Run `./Brewfile` to install homebrew, packages and application 
 - Run `./Caskfile` to install OS X applications from [Caskroom](http://caskroom.io)
 - Run `./NPM` to global install some great NPM packages
 - Party 🎉
 
-### App Store Applications
+## App Store Applications
 Due to sandbox limitations, these apps should be downloaded from the App Store.
 - WunderList
 - 1Password
 - LanScan
 - XCode
-
-### Todo
-- Disable MySQL strict mode in `/usr/local/Cellar/mysql/5.6.xx/my.cnf`
