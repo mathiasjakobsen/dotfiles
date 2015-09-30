@@ -4,15 +4,19 @@ TERM=screen-256color-bce
 alias amcloud1='ssh root@cloud1.arnsbomedia.com'
 alias amdb='ssh root@db.arnsbomedia.com'
 alias amsystem='root@system.arnsbomedia.com'
+alias amcombine='ssh root@108.166.109.133'
 alias cloud='ssh root@46.101.246.29'
 alias dbslave='ssh 64.49.237.57'
+alias inventio='cat ~/Work/documentation/Servers/inventio.md | grep -A 9'
 
 
 
 alias tc="~/Scripts/tmux-copy-session.sh"
-alias editzsh='vim ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
+alias editzsh='vim ~/.oh-my-zsh/plugins/mathiasjakobsen/mathiasjakobsen.plugin.zsh'
 alias ez="editzsh"
 alias theme="vim ~/.oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
+alias cask="brew cask"
+alias gogo="cd ~/go/src/github.com/mathiasjakobsen/"
 
 alias c='clear'
 alias here='open . '
@@ -23,6 +27,7 @@ alias grb='git rebase'
 alias conf='cp ~/Work/conf-files/systemet-configuration.json ~/Work/systemet/Application/settings/configuration.json'
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
 
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias tm='tmux'
