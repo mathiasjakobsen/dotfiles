@@ -31,7 +31,6 @@ function install_packages {
   install "zsh/zshrc" ".zshrc"
   install "zsh/zshenv" ".zshenv"
   install "zsh/profile" ".profile"
-  install "ruby/gemrc" ".gemrc"
   install "bin" "bin"
 }
 function install() {
