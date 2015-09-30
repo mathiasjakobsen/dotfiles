@@ -6,16 +6,15 @@ brew tap caskroom/versions
 apps=(
   alfred
   appcleaner
-  cheatsheet
-  copy
   cyberduck
   dropbox
   firefox
-  flash
-  google-drive
+  goofy
+  google-photos-backup
   hipchat
   iterm2
-  knock
+  macid
+  paw
   rescuetime
   sequel-pro
   skype
