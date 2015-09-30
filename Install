@@ -6,6 +6,12 @@ ROOT=${1:-~}
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
   install_packages
+  setup_vim
+}
+
+function setup_vim {
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
 }
 
 function install_packages {
