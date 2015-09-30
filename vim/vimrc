@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-liquid'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ekalinin/Dockerfile.vim'
@@ -41,6 +42,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'benmills/vimux'
 Plugin 'nixon/vim-vmath'
+Plugin 'wakatime/vim-wakatime'
 
 call vundle#end()
 filetype plugin indent on
