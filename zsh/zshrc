@@ -30,3 +30,4 @@ export CAPP_BUILD="/Users/mathiasjakobsen/Downloads/Starter/Build"
 [ -f /Users/mathiasjakobsen/.travis/travis.sh ] && source /Users/mathiasjakobsen/.travis/travis.sh
 
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+eval $(thefuck --alias)

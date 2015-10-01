@@ -48,6 +48,7 @@ binaries=(
   vim
   webkit2png
   wget
+  thefuck
 )
 
 for i in "${binaries[@]}"
