@@ -17,6 +17,7 @@ function setup_tmux {
     tmux source ~/.tmux.conf
     echo "Hit prefix + I to install TMUX plugins"
   fi
+}
 
 function setup_vim {
   VUNDLE_DIR="vim/dotvim/bundle/Vundle.vim"
