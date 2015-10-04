@@ -24,6 +24,7 @@ apps=(
   utorrent
   vlc
   whatpulse
+  google-chrome
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
