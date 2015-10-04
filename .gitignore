@@ -1,2 +1,3 @@
 tmux/dottmux/resurrect/*
+tmux/dottmux/plugins/*
 vim/dotvim/bundle/*
