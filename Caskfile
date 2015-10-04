@@ -25,6 +25,7 @@ apps=(
   vlc
   whatpulse
   google-chrome
+  chefdk
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
