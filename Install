@@ -7,7 +7,16 @@ function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
   install_packages
   setup_vim
+  setup_tmux
 }
+
+function setup_tmux {
+  TPM_DIR="tmux/dotvim/plugins/tpm"
+  if [ ! -d "TPM_DIR" ]; then
+    git clone https://github.com/tmux-plugins/tpm $TPM_DIR
+    tmux source ~/.tmux.conf
+    echo "Hit prefix + I to install TMUX plugins"
+  fi
 
 function setup_vim {
   VUNDLE_DIR="vim/dotvim/bundle/Vundle.vim"
