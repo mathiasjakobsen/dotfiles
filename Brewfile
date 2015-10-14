@@ -49,6 +49,7 @@ binaries=(
   webkit2png
   wget
   thefuck
+  keybase
 )
 
 for i in "${binaries[@]}"
