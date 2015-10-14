@@ -1,0 +1,9 @@
+#!/bin/bash
+
+frames=`ffmpeg -i $1 -vcodec copy -f rawvideo -y /dev/null 2>&1 | awk '/^frame=/ {print $2}'`
+fps=`ffmpeg -i $1 2>&1 | sed -n 's/.*, \(.*\) fp.*/\1/p'`
+realduration=$(($frames / $fps))
+
+echo "$frames frames"
+echo "$fps FPS"
+echo "$realduration sec."
