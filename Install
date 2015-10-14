@@ -12,7 +12,7 @@ function main {
 
 function setup_tmux {
   TPM_DIR="tmux/dottmux/plugins/tpm"
-  if [ ! -d "TPM_DIR" ]; then
+  if [ ! -d "$TPM_DIR" ]; then
     git clone https://github.com/tmux-plugins/tpm $TPM_DIR
     echo "Hit prefix + I to install TMUX plugins"
   fi
