@@ -47,20 +47,15 @@ Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 filetype plugin indent on
 
-source ~/.vim/setup/rainbow.vim
 source ~/.vim/setup/basics.vim
-source ~/.vim/setup/goyo.vim
 source ~/.vim/setup/keybindings.vim
 source ~/.vim/setup/autocmd.vim
 source ~/.vim/setup/test_runners.vim
 source ~/.vim/setup/dash.vim
-source ~/.vim/setup/ultisnips.vim
 source ~/.vim/setup/silversearcher.vim
 source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/vimux.vim
 source ~/.vim/setup/lightline.vim
-source ~/.vim/setup/calendar.vim
-source ~/.vim/setup/vimwiki.vim
 
 
 
