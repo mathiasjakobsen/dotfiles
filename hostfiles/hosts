@@ -10,17 +10,14 @@
 ::1	localhost
 fe80::1%lo0	localhost
 
-127.0.0.1	tweaker2
-fe80::1%lo0	tweaker2
+127.0.0.1	tweaker2.dev
+fe80::1%lo0	tweaker2.dev
 
-127.0.0.1	system
-fe80::1%lo0	system
+127.0.0.1	system.dev
+fe80::1%lo0	system.dev
 
-127.0.0.1	line
-fe80::1%lo0	line
+127.0.0.1	test.dev
+fe80::1%lo0	test.dev
 
-127.0.0.1	test
-fe80::1%lo0	test
-
-127.0.0.1	poi
-fe80::1%lo0	poi
+127.0.0.1	poi.dev
+fe80::1%lo0	poi.dev
