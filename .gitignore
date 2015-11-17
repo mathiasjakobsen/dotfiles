@@ -1,3 +1,4 @@
 tmux/dottmux/resurrect/*
 tmux/dottmux/plugins/*
 vim/dotvim/bundle/*
+zsh/oh-my-zsh/*
