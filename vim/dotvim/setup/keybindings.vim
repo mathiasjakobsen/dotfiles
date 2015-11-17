@@ -5,6 +5,12 @@ source ~/.vim/setup/keybindings/buffers.vim
 source ~/.vim/setup/keybindings/quickfix.vim
 source ~/.vim/setup/keybindings/ctrlp.vim
 
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
 nnoremap <c-c> <esc>
 noremap <Tab> <C-w>w
 noremap <F1> <Esc>

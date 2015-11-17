@@ -43,6 +43,8 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'benmills/vimux'
 Plugin 'nixon/vim-vmath'
 Plugin 'wakatime/vim-wakatime'
+Plugin 'janko-m/vim-test'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()
 filetype plugin indent on
@@ -50,13 +52,12 @@ filetype plugin indent on
 source ~/.vim/setup/basics.vim
 source ~/.vim/setup/keybindings.vim
 source ~/.vim/setup/autocmd.vim
-source ~/.vim/setup/test_runners.vim
 source ~/.vim/setup/dash.vim
 source ~/.vim/setup/silversearcher.vim
 source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/vimux.vim
 source ~/.vim/setup/lightline.vim
-
+source ~/.vim/setup/hardtime.vim
 
 
 let g:syntastic_always_populate_loc_list = 1
