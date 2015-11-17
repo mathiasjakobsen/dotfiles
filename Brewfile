@@ -50,6 +50,7 @@ binaries=(
   wget
   thefuck
   keybase
+  ngrok
 )
 
 for i in "${binaries[@]}"
