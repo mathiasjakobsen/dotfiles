@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="mathiasjakobsen"
+ZSH_THEME="honukai"
 export DISABLE_AUTO_TITLE="true"
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
@@ -26,7 +26,9 @@ export PATH="/usr/local/narwhal/bin:$PATH"
 
 export CAPP_BUILD="/Users/mathiasjakobsen/Downloads/Starter/Build"
 
-# added by travis gem
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
+ #added by travis gem
 [ -f /Users/mathiasjakobsen/.travis/travis.sh ] && source /Users/mathiasjakobsen/.travis/travis.sh
 
 eval $(thefuck --alias)
