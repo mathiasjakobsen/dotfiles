@@ -14,11 +14,12 @@ alias chmodcode='stat -f "%OLp"'
 alias grb='git rebase'
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
+alias readme='open http://localhost:6419/ && grip'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias tm='tmux'
 alias tmc='tmux kill-server'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
 
 daemons() {
   if (( $# == 0 )) then
