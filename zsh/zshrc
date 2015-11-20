@@ -34,3 +34,4 @@ export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 eval $(thefuck --alias)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="/usr/local/sbin:$PATH"
