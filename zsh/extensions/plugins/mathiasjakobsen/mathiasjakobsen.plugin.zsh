@@ -20,6 +20,8 @@ alias tm='tmux'
 alias tmc='tmux kill-server'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
+alias ci="travis"
+alias sup="travis whatsup"
 
 daemons() {
   if (( $# == 0 )) then
