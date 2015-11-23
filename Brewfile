@@ -14,43 +14,86 @@ brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 
 binaries=(
+  autoconf
+  automake
+  bash
+  boost
   brew-cask
+  cloog018
   colordiff
   coreutils
+  cppunit
   ffmpeg
   findutils
+  freetype
+  gcc
+  gcc49
+  gdbm
+  gettext
   git
+  gmp
+  gmp4
+  gnupg
   go
   grep
   htop-osx
+  hub
+  icu4c
   imagemagick
+  isl
+  isl011
   jpeg
+  keybase
+  lame
+  libevent
+  libgpg-error
+  libksba
+  libmpc
+  libmpc08
+  libpng
+  libtiff
+  libtool
+  libvo-aacenc
+  libxml2
+  libyaml
   lynx
+  mad
   memcached
   mongodb
+  mono
   mp3info
+  mpfr
+  mpfr2
   mysql
+  nginx
+  ngrok
   node
   openssl
+  pcre
   php56
   php56-memcache
-  php56-memcached
-  phpunit
+  pkg-config
   postgresql
+  python
+  python3
+  readline
   reattach-to-user-namespace
   redis
   rename
   sox
-  sshpass
+  sqlite
   the_silver_searcher
+  thefuck
   tmux
+  tokyo-cabinet
   tree
+  unixodbc
   vim
   webkit2png
   wget
-  thefuck
-  keybase
-  ngrok
+  x264
+  xvid
+  xz
 )
 
 for i in "${binaries[@]}"

@@ -4,19 +4,29 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 apps=(
+  1password
   alfred
   appcleaner
+  chefdk
+  couchpotato
   cyberduck
   dropbox
   firefox
+  flash
+  flux
   goofy
+  google-chrome
+  google-chrome-canary
+  google-drive
   google-photos-backup
+  handbrake
   hipchat
-  iterm2
+  iterm2-beta
   macid
   paw
   rescuetime
   sequel-pro
+  silverlight
   skype
   spotify
   sublime-text
@@ -24,8 +34,6 @@ apps=(
   utorrent
   vlc
   whatpulse
-  google-chrome
-  chefdk
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
