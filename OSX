@@ -102,7 +102,7 @@ defaults write com.apple.helpviewer DevMode -bool true
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 #Adds message to loginscreen
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "mathiasjakobsen@me.com | +45 28107688 | Saltholmsgade 26 4.tv - DK-8000 Aarhus C"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "mathiasjakobsen@me.com | +45 28107688 | Saltholmsgade 26, 4. tv. - DK-8000 Aarhus C"
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
