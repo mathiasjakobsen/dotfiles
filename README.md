@@ -17,6 +17,5 @@ Enter at own risk.
 ## App Store Applications
 Due to sandbox limitations, these apps should be downloaded from the App Store.
 - WunderList
-- 1Password
 - LanScan
 - XCode
