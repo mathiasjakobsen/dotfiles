@@ -45,6 +45,7 @@ Plugin 'nixon/vim-vmath'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'janko-m/vim-test'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 filetype plugin indent on
