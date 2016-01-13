@@ -1,5 +1,6 @@
 TERM=screen-256color-bce
 
+alias pi='ssh 192.168.87.107'
 alias amcombine='ssh root@108.166.109.133'
 alias cloud='ssh root@46.101.246.29'
 alias dbslave='ssh 64.49.237.57'
@@ -14,7 +15,7 @@ alias chmodcode='stat -f "%OLp"'
 alias grb='git rebase'
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias readme='open http://localhost:6419/ && grip'
+alias readme='grip -b --user=mathiasjakobsen --pass=1d3c7c6b344d846e273162182dbc504fcaae25b8'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias tm='tmux'
 alias tmc='tmux kill-server'
@@ -22,6 +23,9 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resour
 alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
 alias ci="travis"
 alias sup="travis whatsup"
+alias json-decode="php -r 'print_r(json_decode(file_get_contents(\"php://stdin\")));'"
+alias ical="icalBuddy"
+alias ip="curl -s ipinfo.io"
 
 daemons() {
   if (( $# == 0 )) then
