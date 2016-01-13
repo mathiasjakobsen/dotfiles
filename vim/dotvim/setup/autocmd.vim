@@ -31,6 +31,7 @@ function! RenameFile()
 endfunction
 
 noremap <leader>ren :call RenameFile()<cr>
+nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR>
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
