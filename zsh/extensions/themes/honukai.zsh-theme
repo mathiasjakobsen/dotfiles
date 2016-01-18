@@ -70,3 +70,5 @@ ${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 fi
+
+RPROMPT='%{$fg[blue]%}$(echo $RUBY_VERSION)%{$reset_color%}%'
