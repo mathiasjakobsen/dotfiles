@@ -44,6 +44,13 @@ ys_hg_prompt_info() {
 	fi
 }
 
+# Ruby version
+ruby_version() {
+  original=$RUBY_VERSION
+  replace='💎  '
+  echo -n ${original//ruby-/$replace}
+}
+
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 # %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 # %{$fg[white]%}[%*]
@@ -71,4 +78,4 @@ ${git_info} \
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 fi
 
-RPROMPT='%{$fg[blue]%}$(echo $RUBY_VERSION)%{$reset_color%}%'
+RPROMPT='%{$fg[blue]%}$(ruby_version)%{$reset_color%}%'
