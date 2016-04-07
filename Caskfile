@@ -8,32 +8,23 @@ apps=(
   alfred
   appcleaner
   chefdk
-  couchpotato
   cyberduck
   dropbox
-  firefox
-  flash
   flux
   goofy
   google-chrome
-  google-chrome-canary
   google-drive
-  google-photos-backup
-  handbrake
   hipchat
   iterm2-beta
   macid
-  paw
   rescuetime
   sequel-pro
   silverlight
   skype
   spotify
-  sublime-text
   teamviewer
   utorrent
   vlc
-  whatpulse
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
