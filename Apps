@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if ! type "brew" > /dev/null; then
+  echo "Homebrew not installed. Mission aborted!"
+fi
+
+brew install argon/mas/mas
+echo "Can I have you Apple ID, please?"
+read email
+echo "Can I also have your app specific password?"
+read password
+mas signin $email "$password"
+
+apps=(
+  472226235 # LanScan
+  408981434 # iMovie
+  497799835 # XCode
+  568494494 # Pocket
+  419330170 # Moom
+  410628904 # WunderList
+  557168941 # Tweetbot
+)
+
+mas install ${apps[@]}
+mas upgrade
