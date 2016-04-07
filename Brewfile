@@ -18,26 +18,32 @@ binaries=(
   automake
   bash
   boost
-  brew-cask
+  cloc
   cloog018
+  cmake
   colordiff
   coreutils
   cppunit
   ffmpeg
   findutils
+  flac
   freetype
   gcc
   gcc49
   gdbm
   gettext
   git
+  glew
   gmp
   gmp4
   gnupg
   go
+  gor
+  graphviz
   grep
   htop-osx
   hub
+  ical-buddy
   icu4c
   imagemagick
   isl
@@ -50,15 +56,19 @@ binaries=(
   libksba
   libmpc
   libmpc08
+  libogg
   libpng
   libtiff
   libtool
   libvo-aacenc
+  libvorbis
   libxml2
   libyaml
+  lighttpd
   lynx
   mad
   memcached
+  mitmproxy
   mongodb
   mono
   mp3info
@@ -67,6 +77,7 @@ binaries=(
   mysql
   nginx
   ngrok
+  nmap
   node
   openssl
   pcre
@@ -80,6 +91,7 @@ binaries=(
   reattach-to-user-namespace
   redis
   rename
+  sfml
   sox
   sqlite
   the_silver_searcher
@@ -93,7 +105,6 @@ binaries=(
   wget
   x264
   xvid
-  xz
 )
 
 for i in "${binaries[@]}"
