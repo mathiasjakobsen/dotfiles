@@ -1,12 +1,8 @@
 TERM=screen-256color-bce
 
-alias pi='ssh 192.168.87.107'
-alias amcombine='ssh root@108.166.109.133'
-alias cloud='ssh root@46.101.246.29'
-alias dbslave='ssh 64.49.237.57'
-alias inventio='cat ~/Work/documentation/Servers/inventio.md | grep -A 9'
-alias editzsh='vim ~/.oh-my-zsh/plugins/mathiasjakobsen/mathiasjakobsen.plugin.zsh'
-alias ez="editzsh"
+alias mem="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
+alias wheather='finger aarhus@graph.no'
+alias ez='vim ~/.oh-my-zsh/plugins/mathiasjakobsen/mathiasjakobsen.plugin.zsh'
 alias theme="vim ~/.oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
 alias gogo="cd ~/go/src/github.com/mathiasjakobsen/"
 alias c='clear'
@@ -26,6 +22,16 @@ alias sup="travis whatsup"
 alias json-decode="php -r 'print_r(json_decode(file_get_contents(\"php://stdin\")));'"
 alias ical="icalBuddy"
 alias ip="curl -s ipinfo.io"
+
+# Private
+alias cloud='ssh root@46.101.246.29'
+alias pi='ssh 192.168.87.107'
+
+# Arnsbo Media
+alias system="ssh system.voicearchive.com"
+alias combine='ssh root@172.16.113.137'
+alias dbslave='ssh 64.49.237.57'
+alias resque='ssh system.voicearchive.com "ruby -e \"require \"resque\"; p Resque.info\""'
 
 daemons() {
   if (( $# == 0 )) then
