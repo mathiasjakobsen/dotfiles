@@ -1,21 +1,14 @@
 # Dotfiles
-These are my dotfiles. There are many like them, but these ones are mine.
-Inspired by [@ClausWitt](https://github.com/clauswitt) and [@MathiasBynens](https://github.com/mathiasbynens).
-Enter at own risk.
+These are my dotfiles. There are many like them, but these ones are mine. Some of it is great, some of it is stupid, most of it is stolen from [@clauswit](https://github.com/clauswitt) and [@mathiasbynens](https://github.com/mathiasbynens). Enter at own risk.
 
 ## Install
 **Full setup**
 - Run `rake` to setup evertything
 
 **Seperate setup**
-- Run `./Install` to install .files
-- Run `./Brewfile` to install homebrew, packages and application 
+- Run `./Install` to install .files ([`tmux`](https://tmux.github.io/), [`vim`](http://www.vim.org/), `zsh`, etc.)
+- Run `./Brewfile` to install [Homebrew](http://brew.sh/), packages and applications
 - Run `./Caskfile` to install OS X applications from [Caskroom](http://caskroom.io)
 - Run `./NPM` to global install some great NPM packages
+- Run `./Apps` to install **App Store** only applications (high fives to [@argon](https://github.com/argon) :raised_hand:)
 - Party 🎉
-
-## App Store Applications
-Due to sandbox limitations, these apps should be downloaded from the App Store.
-- WunderList
-- LanScan
-- XCode
