@@ -11,24 +11,25 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/Dropbox\ \(Personlig\)/Apps\ Sync/Dotfiles/github_token.sh
 
 export GOPATH=$HOME/Work/Go
-export PATH=$PATH:$GOPATH/bin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
 export DOCKER_HOST=tcp://localhost:4243
 
-PATH="/usr/local/share/npm/bin:$PATH"
-PATH="$HOME/bin:$PATH"
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
 
 export NARWHAL_ENGINE=jsc
 
+export PATH=$PATH:$GOPATH/bin
+PATH="/usr/local/share/npm/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
 export PATH="/usr/local/narwhal/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 export CAPP_BUILD="/Users/mathiasjakobsen/Downloads/Starter/Build"
 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
  #added by travis gem
 [ -f /Users/mathiasjakobsen/.travis/travis.sh ] && source /Users/mathiasjakobsen/.travis/travis.sh
@@ -36,4 +37,4 @@ export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 eval $(thefuck --alias)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="/usr/local/sbin:$PATH"
+
