@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a=(wallpapers/*);
+a=(${1:-~}/dotfiles/wallpapers/*);
 file=${a[$((RANDOM % ${#a[@]}))]}
 if type "wallpaper" >> /dev/null; then
   wallpaper $file
