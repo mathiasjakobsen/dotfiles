@@ -5,11 +5,11 @@ ROOT=${1:-~}
 
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
-  setup_zsh
   install_packages
   setup_vim
   setup_tmux
   setup_ssh
+  setup_zsh
 }
 
 function setup_zsh {
@@ -19,7 +19,6 @@ function setup_zsh {
   chsh -s /usr/local/bin/zsh $USER
   echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 }
-
 
 function setup_ssh {
   TARGET=$ROOT/${2:-.ssh}
