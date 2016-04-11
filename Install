@@ -8,6 +8,12 @@ function main {
   install_packages
   setup_vim
   setup_tmux
+  setup_ssh
+}
+
+function setup_ssh {
+  TARGET=$ROOT/${2:-.ssh}
+  ln -nfs $ROOT/Dropbox\ \(Personlig\)/Apps\ Sync/Dotfiles/ssh $TARGET
 }
 
 function setup_tmux {
