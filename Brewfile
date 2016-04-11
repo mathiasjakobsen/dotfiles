@@ -106,6 +106,7 @@ binaries=(
   wget
   x264
   xvid
+  zsh
 )
 
 for i in "${binaries[@]}"
