@@ -8,7 +8,6 @@ function main {
   install_packages
   setup_vim
   setup_tmux
-  setup_ssh
   setup_zsh
 }
 
@@ -18,11 +17,6 @@ function setup_zsh {
   fi
   chsh -s /usr/local/bin/zsh $USER
   echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
-}
-
-function setup_ssh {
-  TARGET=$ROOT/${2:-.ssh}
-  ln -nfs $ROOT/Dropbox\ \(Personlig\)/Apps\ Sync/Dotfiles/ssh $TARGET
 }
 
 function setup_tmux {
@@ -42,31 +36,34 @@ function setup_vim {
 }
 
 function install_packages {
-  install "ag/agignore" ".agignore"
-  install "git/gitconfig" ".gitconfig"
-  install "git/gitmessage" ".gitmessage"
-  install "git/gitignore_global" ".gitignore_global"
-  install "grunt"
-  install "tmux/tmux.conf" ".tmux.conf"
-  install "tmux/dottmux" ".tmux"
-  install "vim/vimrc" ".vimrc"
-  install "vim/gvimrc" ".gvimrc"
-  install "vim/dotvim" ".vim"
-  install "zsh/oh-my-zsh/" ".oh-my-zsh"
-  install "zsh/extensions/plugins/mathiasjakobsen" ".oh-my-zsh/plugins/mathiasjakobsen"
-  install "zsh/extensions/themes/mathiasjakobsen.zsh-theme" ".oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
-  install "zsh/extensions/themes/honukai.zsh-theme" ".oh-my-zsh/themes/honukai.zsh-theme"
-  install "zsh/zshrc" ".zshrc"
-  install "zsh/zshenv" ".zshenv"
-  install "zsh/profile" ".profile"
-  install "bin" "bin"
+  DOTFILES="dotfiles"
+  symlink "$DOTFILES/ag/agignore" ".agignore"
+  symlink "$DOTFILES/git/gitconfig" ".gitconfig"
+  symlink "$DOTFILES/git/gitmessage" ".gitmessage"
+  symlink "$DOTFILES/git/gitignore_global" ".gitignore_global"
+  symlink "$DOTFILES/tmux/tmux.conf" ".tmux.conf"
+  symlink "$DOTFILES/tmux/dottmux" ".tmux"
+  symlink "$DOTFILES/vim/vimrc" ".vimrc"
+  symlink "$DOTFILES/vim/gvimrc" ".gvimrc"
+  symlink "$DOTFILES/vim/dotvim" ".vim"
+  symlink "$DOTFILES/zsh/oh-my-zsh/" ".oh-my-zsh"
+  symlink "$DOTFILES/zsh/extensions/plugins/mathiasjakobsen" ".oh-my-zsh/plugins/mathiasjakobsen"
+  symlink "$DOTFILES/zsh/extensions/themes/mathiasjakobsen.zsh-theme" ".oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
+  symlink "$DOTFILES/zsh/extensions/themes/honukai.zsh-theme" ".oh-my-zsh/themes/honukai.zsh-theme"
+  symlink "$DOTFILES/zsh/zshrc" ".zshrc"
+  symlink "$DOTFILES/zsh/zshenv" ".zshenv"
+  symlink "$DOTFILES/zsh/profile" ".profile"
+  symlink "$DOTFILES/bin" "bin"
+  symlink "Dropbox (Personlig)/Apps Sync/Dotfiles/ssh" ".ssh"
 }
-function install() {
+
+function symlink() {
   TARGET=$ROOT/${2:-.$1}
+  echo $TARGET
   if [[ -e $TARGET ]]; then
     rm -rf $TARGET
   fi
-  ln -nfs $PWD/$1 $TARGET
+  ln -nfs $ROOT/$1 $TARGET
 }
 
 main
