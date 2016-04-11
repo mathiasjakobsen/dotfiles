@@ -11,6 +11,7 @@ brew install findutils  # Install GNU `find`, `locate`, `updatedb`, and `xargs`,
 brew install bash       # Install Bash 4
 
 brew tap homebrew/dupes
+brew tap homebrew/php
 brew install homebrew/dupes/grep
 
 binaries=(
