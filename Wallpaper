@@ -1,0 +1,7 @@
+#!/bin/bash
+
+a=(wallpapers/*);
+file=${a[$((RANDOM % ${#a[@]}))]}
+if type "wallpaper"; then
+  wallpaper $file
+fi
