@@ -15,6 +15,7 @@ apps=(
   google-drive
   hipchat
   iterm2-beta
+  java
   macid
   rescuetime
   sequel-pro
