@@ -6,9 +6,17 @@ ROOT=${1:-~}
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
   install_packages
+  install_rvm
   setup_vim
   setup_tmux
   setup_zsh
+}
+
+function install_rvm {
+  if [ ! type "rvm" ]; then
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    \curl -sSL https://get.rvm.io | bash -s stable --ruby
+  fi
 }
 
 function setup_zsh {
