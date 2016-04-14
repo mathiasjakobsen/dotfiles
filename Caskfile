@@ -18,6 +18,7 @@ apps=(
   iterm2-beta
   java
   macid
+  postman
   rescuetime
   sequel-pro
   silverlight
