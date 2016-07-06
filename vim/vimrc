@@ -46,6 +46,8 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'janko-m/vim-test'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'ngmy/vim-rubocop'
+Plugin 'AndrewRadev/linediff.vim'
+Plugin 'rhysd/vim-crystal'
 
 call vundle#end()
 filetype plugin indent on

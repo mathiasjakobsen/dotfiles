@@ -11,6 +11,9 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+nmap <silent> <leader>xml :%!xmllint --format -<CR>
+nmap <silent> <leader>json :%!python -m json.tool<CR>
+
 nnoremap <c-c> <esc>
 noremap <Tab> <C-w>w
 noremap <F1> <Esc>
