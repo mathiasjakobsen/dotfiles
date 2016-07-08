@@ -26,7 +26,8 @@ PATH="$HOME/bin:$PATH"
 PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
 export PATH="/usr/local/narwhal/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+source $(brew --prefix php-version)/php-version.sh && php-version 5
+source `brew --prefix`/etc/profile.d/z.sh
 
 export CAPP_BUILD="/Users/mathiasjakobsen/Downloads/Starter/Build"
 

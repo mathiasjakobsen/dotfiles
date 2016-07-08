@@ -23,16 +23,6 @@ alias json-decode="php -r 'print_r(json_decode(file_get_contents(\"php://stdin\"
 alias ical="icalBuddy"
 alias ip="curl -s ipinfo.io"
 
-# Private
-alias cloud='ssh root@46.101.246.29'
-alias pi='ssh 192.168.87.107'
-
-# Arnsbo Media
-alias system="ssh system.voicearchive.com"
-alias combine='ssh root@172.16.113.137'
-alias dbslave='ssh 64.49.237.57'
-alias resque='ssh system.voicearchive.com "ruby -e \"require \"resque\"; p Resque.info\""'
-
 daemons() {
   if (( $# == 0 )) then
     echo "Usage: daemons [pattern] [command]"
