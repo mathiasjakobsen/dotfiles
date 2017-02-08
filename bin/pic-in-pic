@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ffplay -f lavfi "movie=$1,scale=iw/2:ih[v0];movie=$2,scale=iw/2:ih[v1];[v0][v1]hstack"
