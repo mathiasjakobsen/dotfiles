@@ -7,6 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-obsession'
@@ -48,6 +49,8 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'rhysd/vim-crystal'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'kongo2002/fsharp-vim'
 
 call vundle#end()
 filetype plugin indent on
