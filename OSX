@@ -14,3 +14,11 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Hent alle nye besk
 
 # Seach all accounts using ⌘ +l
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Søg i postkasse" -string "@l"
+
+# ----------------------------------------------------------------------------------
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input
+# ----------------------------------------------------------------------------------
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
