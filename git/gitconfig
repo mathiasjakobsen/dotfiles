@@ -128,3 +128,7 @@
 
 [push]
 	default = simple
+[http "https://git.https://controller.services.fliva.com"]
+	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/fliva.pem
+[credential "https://git.https://controller.services.fliva.com"]
+	helper = /usr/local/bin/flynn git-credentials
