@@ -1,27 +1,16 @@
 TERM=screen-256color-bce
 
-alias mem="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
-alias wheather='finger aarhus@graph.no'
-alias ez='vim ~/.oh-my-zsh/plugins/mathiasjakobsen/mathiasjakobsen.plugin.zsh'
-alias theme="vim ~/.oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
-alias gogo="cd ~/go/src/github.com/mathiasjakobsen/"
 alias c='clear'
-alias here='open . '
+alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias chmodcode='stat -f "%OLp"'
-alias grb='git rebase'
+alias here='open . '
+alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+alias mem="egrep --color 'Mem|Cache|Swap' /proc/meminfo"
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias readme='grip -b --user=mathiasjakobsen --pass=$GITHUB_TOKEN'
-alias cdg='cd "$(git rev-parse --show-toplevel)"'
-alias tm='tmux'
-alias tmc='tmux kill-server'
-alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
-alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
-alias ci="travis"
-alias sup="travis whatsup"
-alias json-decode="php -r 'print_r(json_decode(file_get_contents(\"php://stdin\")));'"
-alias ical="icalBuddy"
-alias ip="curl -s ipinfo.io"
+alias weather='finger aarhus@graph.no'
 
 daemons() {
   if (( $# == 0 )) then

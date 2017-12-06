@@ -7,6 +7,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'vim-polyglot'
+Plugin 'w0rp/ale'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'jakwings/vim-pony'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-dispatch'
@@ -32,7 +37,6 @@ Plugin 'einars/js-beautify'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'SirVer/ultisnips'
 Plugin 'kchmck/vim-coffee-script'
@@ -64,6 +68,7 @@ source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/vimux.vim
 source ~/.vim/setup/lightline.vim
 source ~/.vim/setup/hardtime.vim
+source ~/.vim/setup/linting.vim
 
 
 let g:syntastic_always_populate_loc_list = 1

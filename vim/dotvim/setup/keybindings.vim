@@ -13,6 +13,7 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 nmap <silent> <leader>xml :%!xmllint --format -<CR>
 nmap <silent> <leader>json :%!python -m json.tool<CR>
+nmap <silent> <leader>lint :ALEFix<CR>
 
 nnoremap <c-c> <esc>
 noremap <Tab> <C-w>w
