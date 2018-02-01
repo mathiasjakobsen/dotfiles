@@ -2,4 +2,3 @@
 
 gem install bundler
 gem install foreman
-gem install sass
