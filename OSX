@@ -2,23 +2,56 @@
 
 # Mostly hijacked from https://mths.be/osx
 
-# ----------------------------------------------------------------------------------
-# Mail.app
-# ----------------------------------------------------------------------------------
+# Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
 
-# Send mail using ⌘ +Enter
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "@\U21a9" -string "@\U21a9"
+# Ask for the administrator password upfront
+sudo -v
 
-# Sync all accounts using ⌘ +s
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# ----------------------------------------------------------------------------------------------
+
+# Mail.app | Send mail using ⌘ +Enter
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\U21a9"
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
+
+# Mail.app | Sync all accounts using ⌘ +s
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Hent alle nye beskeder" -string "@s"
 
-# Seach all accounts using ⌘ +l
+# Mail.app | Seach all accounts using ⌘ +l
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Søg i postkasse" -string "@l"
 
-# ----------------------------------------------------------------------------------
-# Trackpad, mouse, keyboard, Bluetooth accessories, and input
-# ----------------------------------------------------------------------------------
-
-# Set a blazingly fast keyboard repeat rate
+# Keyboard | Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Keyboard | Enable full keyboard access
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Touchpad | Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Dock | Hide automatically
+defaults write com.apple.dock autohide -bool true
+
+# Audio | Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# UI | Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Photos.app | Disable open when device is connected
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Finder.app | Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Finder.app | Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+

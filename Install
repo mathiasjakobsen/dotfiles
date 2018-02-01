@@ -5,11 +5,13 @@ ROOT=${1:-~}
 
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
-  install_packages
   install_rvm
   setup_vim
   setup_tmux
   setup_zsh
+  setup_oh_my_zsh
+  setup_theme
+  install_packages
 }
 
 function install_rvm {
@@ -19,12 +21,28 @@ function install_rvm {
   fi
 }
 
+function setup_oh_my_zsh {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+function setup_theme {
+  yarn global add pure-prompt
+}
+
 function setup_zsh {
   if ! type "/usr/local/bin/zsh" > /dev/null; then
     brew install zsh
   fi
-  chsh -s /usr/local/bin/zsh $USER
-  echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
+
+  local shell_path;
+  shell_path="$(which zsh)"
+
+  if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+    echo "Adding '$shell_path' to /etc/shells"
+    sudo sh -c "echo $shell_path >> /etc/shells"
+  fi
+
+  chsh -s "$shell_path"
 }
 
 function setup_tmux {
@@ -54,7 +72,6 @@ function install_packages {
   symlink "$DOTFILES/vim/vimrc" ".vimrc"
   symlink "$DOTFILES/vim/gvimrc" ".gvimrc"
   symlink "$DOTFILES/vim/dotvim" ".vim"
-  symlink "$DOTFILES/zsh/oh-my-zsh/" ".oh-my-zsh"
   symlink "$DOTFILES/zsh/extensions/plugins/mathiasjakobsen" ".oh-my-zsh/plugins/mathiasjakobsen"
   symlink "$DOTFILES/zsh/extensions/themes/mathiasjakobsen.zsh-theme" ".oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
   symlink "$DOTFILES/zsh/extensions/themes/honukai.zsh-theme" ".oh-my-zsh/themes/honukai.zsh-theme"

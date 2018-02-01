@@ -6,18 +6,16 @@ brew tap caskroom/versions
 apps=(
   1password
   alfred
-  appcleaner
   caffeine
+  caskroom/versions/iterm2-nightly
   chefdk
-  cyberduck
   dropbox
+  firefox
   goofy
+  google-backup-and-sync
   google-chrome
-  google-drive
   hipchat
-  iterm2-beta
   java
-  macid
   postman
   rescuetime
   sequel-pro
@@ -25,7 +23,6 @@ apps=(
   skype
   spotify
   teamviewer
-  utorrent
   vlc
 )
 
