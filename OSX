@@ -45,6 +45,12 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# UI | Dark Mode NOT WORKING
+# defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
+# UI | Auto Hide Menubar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
 # Photos.app | Disable open when device is connected
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
@@ -54,4 +60,9 @@ chflags nohidden ~/Library
 # Finder.app | Show the /Volumes folder
 sudo chflags nohidden /Volumes
 
+# Iterm 2 | Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+killall Dock;
+killall SystemUIServer;
+killall Finder;

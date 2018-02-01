@@ -140,3 +140,7 @@
 	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/voicearchive.pem
 [credential "https://git.services.voicearchive.com"]
 	helper = /usr/local/bin/flynn git-credentials
+[http "https://git.services.fliva.com"]
+	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/fliva.pem
+[credential "https://git.services.fliva.com"]
+	helper = /usr/local/bin/flynn git-credentials

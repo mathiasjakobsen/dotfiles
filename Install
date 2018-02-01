@@ -12,6 +12,7 @@ function main {
   setup_oh_my_zsh
   setup_theme
   install_packages
+  install_flynn
 }
 
 function install_rvm {
@@ -21,12 +22,17 @@ function install_rvm {
   fi
 }
 
+function install_flynn {
+  L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
+}
+
 function setup_oh_my_zsh {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 function setup_theme {
   yarn global add pure-prompt
+  open "dotfiles/Snazzy.itermcolors"
 }
 
 function setup_zsh {
