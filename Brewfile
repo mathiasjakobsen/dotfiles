@@ -21,6 +21,7 @@ binaries=(
   ffmpeg
   findutils
   flac
+  fpp
   gcc
   gd
   git
