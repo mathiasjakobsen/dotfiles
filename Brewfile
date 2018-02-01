@@ -74,6 +74,7 @@ binaries=(
   yarn
   z
   zsh
+  zsh-syntax-highlighting
 )
 
 for i in "${binaries[@]}"
