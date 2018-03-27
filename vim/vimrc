@@ -7,27 +7,31 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'gmarik/Vundle.vim'
+" Plugin 'vim-polyglot'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'w0rp/ale'
 Plugin 'salomvary/vim-eslint-compiler'
 Plugin 'igemnace/vim-makery'
-Plugin 'vim-polyglot'
-Plugin 'w0rp/ale'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'jakwings/vim-pony'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'gmarik/Vundle.vim'
+Plugin 'ElmCast/elm-vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-liquid'
+Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-" Plugin 'itchyny/lightline.vim'
-" Plugin 'mattn/emmet-vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'terryma/vim-expand-region'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'roman/golden-ratio'
+Plugin 'honza/vim-snippets'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'ervandew/supertab'
@@ -67,10 +71,4 @@ source ~/.vim/setup/linting.vim
 
 let g:syntastic_always_populate_loc_list = 1
 
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 1
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 

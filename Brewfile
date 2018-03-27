@@ -76,6 +76,7 @@ binaries=(
   z
   zsh
   zsh-syntax-highlighting
+  cloc
 )
 
 for i in "${binaries[@]}"

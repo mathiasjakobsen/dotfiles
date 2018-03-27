@@ -24,6 +24,8 @@ apps=(
   spotify
   teamviewer
   vlc
+  graphiql
+  deckset
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
