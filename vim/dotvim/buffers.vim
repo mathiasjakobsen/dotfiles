@@ -1,4 +1,3 @@
-
 function! BufSel(pattern)
   let bufcount = bufnr("$")
   let currbufnr = 1

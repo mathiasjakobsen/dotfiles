@@ -1,14 +1,3 @@
-
-function! SetScreenTitle()
-  silent !clear
-  let titlestring = "Program: vim | File: " . expand("%") . ""
-  let cmd = "!~/Scripts/name.sh \"".titlestring."\""
-  silent execute(cmd)
-  redraw!
-endfunction
-
-autocmd BufEnter * call SetScreenTitle()
-
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2

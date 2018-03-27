@@ -1,74 +1,41 @@
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-set nocompatible
+set nocompatible  " IMproved
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+
+set rtp+=~/.vim/dotvim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
+
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-" Plugin 'vim-polyglot'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'w0rp/ale'
-Plugin 'salomvary/vim-eslint-compiler'
-Plugin 'igemnace/vim-makery'
-Plugin 'ElmCast/elm-vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-liquid'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'itchyny/lightline.vim'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'terryma/vim-expand-region'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'roman/golden-ratio'
-Plugin 'honza/vim-snippets'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'SirVer/ultisnips'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/Solarized'
-Plugin 'groenewege/vim-less'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'benmills/vimux'
-Plugin 'nixon/vim-vmath'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'janko-m/vim-test'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'AndrewRadev/linediff.vim'
-Plugin 'rhysd/vim-crystal'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'kongo2002/fsharp-vim'
-
+  Plugin 'gmarik/Vundle.vim'            " Plugin Manager (required)
+  Plugin 'vim-polyglot'                 " Polyglot syntax highlighting
+  Plugin 'w0rp/ale'                     " Async polyglot linting
+  Plugin 'tpope/vim-dispatch'           " Async Vim operations
+  Plugin 'tpope/vim-endwise'            " Automatically close code blocks (i.e. add 'end' in Ruby)
+  Plugin 'tpope/vim-fugitive'           " Git wrapper, with command like :Gblame, :Gmove & :Gstatus
+  Plugin 'tpope/vim-rails'              " Ruby on Rails powers
+  Plugin 'tpope/vim-surround'           " Change/remove surrounding marks
+  Plugin 'tpope/vim-commentary'         " Use 'g a' to comment out anything, in any language
+  Plugin 'itchyny/lightline.vim'        " Lightweight clone of 'Powerline'
+  Plugin 'mattn/emmet-vim'              " (TODO) Mutate selection to HTML/code structure (i.e. a list -> ul with i elements)
+  Plugin 'terryma/vim-expand-region'    " Use '+' and '_' to expend current selection (in visual mode)
+  Plugin 'airblade/vim-gitgutter'       " Show git diff in the gutter
+  Plugin 'myusuf3/numbers.vim'          " Show relative line numbers, in insert mode
+  Plugin 'kien/rainbow_parentheses.vim' " Hightlight nested parentheses/brackets
+  Plugin 'ervandew/supertab'            " Shuffle auto completion, only using <Tab>
+  Plugin 'godlygeek/tabular'            " ':Tabularize/[char]' to auto align based on RegEx
+  Plugin 'wakatime/vim-wakatime'        " Wakatime tracking
+  Plugin 'janko-m/vim-test'             " Run polyglot tests
+  Plugin 'AndrewRadev/linediff.vim'     " Compare two selection split view, by ':Linediff' each of them
+  Plugin 'flazz/vim-colorschemes'       " Vim Color Collection
+  Plugin 'takac/vim-hardtime'
 call vundle#end()
+
 filetype plugin indent on
+syntax on
 
-source ~/.vim/setup/basics.vim
-source ~/.vim/setup/keybindings.vim
-source ~/.vim/setup/autocmd.vim
-source ~/.vim/setup/dash.vim
-source ~/.vim/setup/silversearcher.vim
-source ~/.vim/setup/selecta.vim
-source ~/.vim/setup/vimux.vim
-source ~/.vim/setup/lightline.vim
-source ~/.vim/setup/hardtime.vim
-source ~/.vim/setup/linting.vim
+" colorscheme minimalist
+let g:hardtime_default_on = 1
 
-
-let g:syntastic_always_populate_loc_list = 1
-
-
+source ~/.vim/dotvim/core.vim
+source ~/.vim/dotvim/keybindings.vim
+source ~/.vim/dotvim/autocmd.vim
+source ~/.vim/dotvim/silversearcher.vim

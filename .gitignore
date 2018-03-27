@@ -1,5 +1,6 @@
 tmux/dottmux/resurrect/*
 tmux/dottmux/plugins/*
+vim/bundle/*
 vim/dotvim/bundle/*
 vim/dotvim/plugin/*
 vim/dotvim/.netrwhist

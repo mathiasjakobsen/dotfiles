@@ -32,7 +32,7 @@ function setup_oh_my_zsh {
 
 function setup_theme {
   yarn global add pure-prompt
-  open "dotfiles/Snazzy.itermcolors"
+  open "Snazzy.itermcolors"
 }
 
 function setup_zsh {
@@ -77,7 +77,7 @@ function install_packages {
   symlink "$DOTFILES/tmux/dottmux" ".tmux"
   symlink "$DOTFILES/vim/vimrc" ".vimrc"
   symlink "$DOTFILES/vim/gvimrc" ".gvimrc"
-  symlink "$DOTFILES/vim/dotvim" ".vim"
+  symlink "$DOTFILES/vim" ".vim"
   symlink "$DOTFILES/zsh/extensions/plugins/mathiasjakobsen" ".oh-my-zsh/plugins/mathiasjakobsen"
   symlink "$DOTFILES/zsh/extensions/themes/mathiasjakobsen.zsh-theme" ".oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
   symlink "$DOTFILES/zsh/extensions/themes/honukai.zsh-theme" ".oh-my-zsh/themes/honukai.zsh-theme"
