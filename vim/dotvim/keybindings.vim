@@ -22,6 +22,7 @@ noremap <leader>r :redraw!<cr>
 
 " Search current word
 noremap <leader>ag :Ag <c-r>=expand("<cword>")<cr><Enter>
+nnoremap \ :Ag<SPACE>
 
 " Clear search highlights
 noremap <silent><leader>/ :nohls<CR>

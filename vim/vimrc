@@ -5,6 +5,7 @@ set rtp+=~/.vim/dotvim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
+  Plugin 'junegunn/fzf.vim'             " FZF Vim integration
   Plugin 'gmarik/Vundle.vim'            " Plugin Manager (required)
   Plugin 'sheerun/vim-polyglot'         " Polyglot syntax highlighting
   Plugin 'w0rp/ale'                     " Async polyglot linting
@@ -43,4 +44,3 @@ source ~/.vim/dotvim/core.vim
 source ~/.vim/dotvim/lightline.vim
 source ~/.vim/dotvim/keybindings.vim
 source ~/.vim/dotvim/autocmd.vim
-source ~/.vim/dotvim/silversearcher.vim
