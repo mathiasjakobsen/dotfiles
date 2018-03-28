@@ -6,7 +6,7 @@ set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
   Plugin 'gmarik/Vundle.vim'            " Plugin Manager (required)
-  Plugin 'vim-polyglot'                 " Polyglot syntax highlighting
+  Plugin 'sheerun/vim-polyglot'         " Polyglot syntax highlighting
   Plugin 'w0rp/ale'                     " Async polyglot linting
   Plugin 'tpope/vim-dispatch'           " Async Vim operations
   Plugin 'tpope/vim-endwise'            " Automatically close code blocks (i.e. add 'end' in Ruby)
@@ -37,6 +37,7 @@ syntax on
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
+let g:polyglot_disabled = ['html']
 
 source ~/.vim/dotvim/core.vim
 source ~/.vim/dotvim/lightline.vim
