@@ -19,7 +19,6 @@ call vundle#begin()
   Plugin 'mattn/emmet-vim'              " (TODO) Mutate selection to HTML/code structure (i.e. a list -> ul with i elements)
   Plugin 'terryma/vim-expand-region'    " Use '+' and '_' to expend current selection (in visual mode)
   Plugin 'airblade/vim-gitgutter'       " Show git diff in the gutter
-  Plugin 'myusuf3/numbers.vim'          " Show relative line numbers, in insert mode
   Plugin 'kien/rainbow_parentheses.vim' " Hightlight nested parentheses/brackets
   Plugin 'ervandew/supertab'            " Shuffle auto completion, only using <Tab>
   Plugin 'godlygeek/tabular'            " ':Tabularize/[char]' to auto align based on RegEx
