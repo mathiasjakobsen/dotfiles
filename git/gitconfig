@@ -148,3 +148,8 @@
 	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/arnsbomedia.pem
 [credential "https://git.flynn.arnsbomedia.com"]
 	helper = /usr/local/bin/flynn git-credentials
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

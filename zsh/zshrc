@@ -21,6 +21,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/go/bin"
 source `brew --prefix`/etc/profile.d/z.sh
 
 
@@ -45,3 +46,29 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 autoload -U promptinit; promptinit
 prompt pure
+
+bug() {
+  jira create --noedit --issuetype=Bug -o summary="$1" -o description="$2"
+}
+
+issue() {
+  jira create --noedit --issuetype=Enhancement -o summary="$1" -o description="$2"
+}
+
+task() {
+  jira create --noedit --issuetype=Task -o summary="$1" -o description="$2"
+}
+
+spike() {
+  jira create --noedit --issuetype=Spike -o summary="$1" -o description="$2"
+}
+
+tms() {
+  tmuxinator start $1
+}
+
+tmk() {
+  tmux kill-session -t $1
+}
+export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+export PATH="/usr/local/opt/php@7.0/sbin:$PATH"

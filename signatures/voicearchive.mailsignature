@@ -39,11 +39,11 @@ Content-Type: text/html;
         </span>
         <br />
         <span style="font-size: 8pt; font-family: Calibri, sans-serif; color: #808080;">
-          <a href="http://www.voicearchive.dk/" style="color: rgb(149, 79, 114);">DENMARK</a> |
-          <a href="http://www.voicearchive.com/" style="color: rgb(149, 79, 114);">NEW YORK</a> |
-          <a href="http://www.voicearchive.co.uk/" style="color: rgb(149, 79, 114);">LONDON</a> |
-          <a href="http://www.voicearchive.co.za/" style="color: rgb(149, 79, 114);">SOUTH AFRICA</a> |
-          <a href="http://www.voicearchive.de/" style="color: rgb(149, 79, 114);">BENELUX</a>
+          <a href="http://www.voicearchive.dk/" style="color: #808080; text-decoration: none;">DENMARK</a> |
+          <a href="http://www.voicearchive.com/" style="color: #808080; text-decoration: none;">NEW YORK</a> |
+          <a href="http://www.voicearchive.co.uk/" style="color: #808080; text-decoration: none;">LONDON</a> |
+          <a href="http://www.voicearchive.co.za/" style="color: #808080; text-decoration: none;">SOUTH AFRICA</a> |
+          <a href="http://www.voicearchive.co.de/" style="color: #808080; text-decoration: none;">BENELUX</a>
         </span>
       </td>
     </tr>
