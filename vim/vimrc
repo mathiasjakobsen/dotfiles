@@ -1,46 +1,108 @@
-set nocompatible  " IMproved
+set nocompatible
 filetype off
 
-set rtp+=~/.vim/dotvim/bundle/Vundle.vim
+let mapleader = ","
+
+set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
-  Plugin 'roman/golden-ratio'           " Open new pane with a golden ratio width
-  Plugin 'junegunn/fzf.vim'             " FZF Vim integration
-  Plugin 'gmarik/Vundle.vim'            " Plugin Manager (required)
-  Plugin 'sheerun/vim-polyglot'         " Polyglot syntax highlighting
-  Plugin 'w0rp/ale'                     " Async polyglot linting
-  Plugin 'tpope/vim-dispatch'           " Async Vim operations
-  Plugin 'tpope/vim-endwise'            " Automatically close code blocks (i.e. add 'end' in Ruby)
-  Plugin 'tpope/vim-fugitive'           " Git wrapper, with command like :Gblame, :Gmove & :Gstatus
-  Plugin 'tpope/vim-rails'              " Ruby on Rails powers
-  Plugin 'tpope/vim-surround'           " Change/remove surrounding marks
-  Plugin 'tpope/vim-commentary'         " Use 'g a' to comment out anything, in any language
-  Plugin 'itchyny/lightline.vim'        " Lightweight clone of 'Powerline'
-  Plugin 'mattn/emmet-vim'              " (TODO) Mutate selection to HTML/code structure (i.e. a list -> ul with i elements)
-  Plugin 'terryma/vim-expand-region'    " Use '+' and '_' to expend current selection (in visual mode)
-  Plugin 'airblade/vim-gitgutter'       " Show git diff in the gutter
-  Plugin 'kien/rainbow_parentheses.vim' " Hightlight nested parentheses/brackets
-  Plugin 'ervandew/supertab'            " Shuffle auto completion, only using <Tab>
-  Plugin 'godlygeek/tabular'            " ':Tabularize/[char]' to auto align based on RegEx
-  Plugin 'wakatime/vim-wakatime'        " Wakatime tracking
-  Plugin 'janko-m/vim-test'             " Run polyglot tests
-  Plugin 'AndrewRadev/linediff.vim'     " Compare two selection split view, by ':Linediff' each of them
-  Plugin 'flazz/vim-colorschemes'       " Vim Color Collection
-  Plugin 'takac/vim-hardtime'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'itchyny/lightline.vim'
+  Plugin 'junegunn/fzf.vim'
+  Plugin 'roman/golden-ratio'
+  Plugin 'sheerun/vim-polyglot'
+  Plugin 'tpope/vim-commentary'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'w0rp/ale'
+  Plugin 'wakatime/vim-wakatime'
 call vundle#end()
+
+" Tests
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" Formatting
+nmap <silent> <leader>xml :%!xmllint --format -<CR>
+nmap <silent> <leader>json :%!python -m json.tool<CR>
+nmap <silent> <leader>lint :ALEFix<CR>
+
+" Mappings for IO operations
+noremap <leader>w :w<CR>
+noremap <leader>q :q<CR>
+noremap <leader>f :FZF<CR>
+
+" Search current word
+noremap <leader>ag :Ag <c-r>=expand("<cword>")<cr><Enter>
+nnoremap \ :Ag<SPACE>
+
+" Clear search highlights
+noremap <silent><leader>/ :nohls<CR>
+
+" Use 'h', 'j', 'k' and 'l' to nagivate splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Open splits with leader
+noremap <leader>vs :vs %<cr>
+noremap <leader>ss :split %<cr>
+
+" Use '-' and '+' to resize window
+noremap - <C-W><
+noremap + <C-W>>
+noremap <A-j> <C-W>-
+noremap <A-k> <C-W>+
+
+set showcmd                                 " Display incomplete commands
+set showmode                                " Display the mode you're in
+set pastetoggle=<F2>
+set backspace=indent,eol,start              " Intuitive backspacing
+set hidden                                  " Handle multiple buffers better
+set wildmenu                                " Enhanced command line completion
+set wildmode=list:longest                   " Complete files like a shell
+set ignorecase                              " Case-insensitive searching
+set smartcase                               " But case-sensitive if expression contains a capital letter
+set number                                  " Show line numbers
+set ruler                                   " Show cursor position
+set incsearch                               " Highlight matches as you type
+set hlsearch                                " Highlight matches
+set nofoldenable                            " Disable folding
+set wrap                                    " Turn on line wrapping
+set scrolloff=6                             " Show 3 lines of context around the cursor.
+set showmatch
+set title                                   " Set the terminal's title
+set visualbell                              " No beeping
+set noeb vb t_vb=                           " Stop the god damn beeps!
+set nobackup                                " Don't make a backup before overwriting a file
+set nowritebackup                           " And again
+set noswapfile                              " Don't make swapfiles
+set backupskip=/tmp/*,/private/tmp/*
+set undodir=~/.vim/undo
+set expandtab                               " Use spaces instead of tabs
+set tabstop=2                               " <Tab> == 2 spaces
+set shiftwidth=2
+set backspace=2
+set smarttab
+set laststatus=2                            " Always show the status line
+set autoindent                              " Indent at the same level as previous line
+set smartindent
+set shortmess=a                             " Avoid 'Hit ENTER to continue'
+set list
+set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ }
 
 filetype plugin indent on
 syntax on
-
-" colorscheme minimalist
-" let g:hardtime_default_on = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-let g:polyglot_disabled = ['html']
-
-source ~/.vim/dotvim/core.vim
-source ~/.vim/dotvim/lightline.vim
-source ~/.vim/dotvim/keybindings.vim
-source ~/.vim/dotvim/autocmd.vim

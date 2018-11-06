@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/mathiasjakobsen/Work/adrenaline/node_modules'
-let g:netrw_dirhist_2='/Users/mathiasjakobsen/Work/voicetools-api/.jira.d'
-let g:netrw_dirhist_3='/Users/mathiasjakobsen/Work/voiceselector/app/frontend/admin/node_modules/grunt-contrib-connect'
-let g:netrw_dirhist_4='/Users/mathiasjakobsen/Work/systemet'
-let g:netrw_dirhist_5='/Users/mathiasjakobsen/Work/omniauth-voicearchive/lib/tasks'
