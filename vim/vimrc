@@ -8,6 +8,7 @@ let $LANG = 'en_US'
 filetype off
 
 
+
 let mapleader = ","
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -34,6 +35,7 @@ call vundle#end()
 " Open FZF results in Quickfix (Ctrl+A and then Ctrl+Q)
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -76,10 +78,12 @@ nmap <silent> <leader>xml :%!xmllint --format -<CR>
 nmap <silent> <leader>json :%!python -m json.tool<CR>
 nmap <silent> <leader>lint :ALEFix<CR>
 
+
 " Mappings for IO operations
 noremap <leader>w :w<CR>
 noremap <leader>q :q<CR>
 noremap <leader>f :FZF<CR>
+
 
 " Search current word
 noremap <leader>ag :Ag <c-r>=expand("<cword>")<cr><Enter>
@@ -149,3 +153,7 @@ let g:lightline = {
 
 filetype plugin indent on
 syntax on
+
+
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
