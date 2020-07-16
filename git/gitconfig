@@ -140,16 +140,16 @@
 	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/voicearchive.pem
 [credential "https://git.services.voicearchive.com"]
 	helper = /usr/local/bin/flynn git-credentials
-[http "https://git.services.fliva.com"]
-	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/fliva.pem
-[credential "https://git.services.fliva.com"]
-	helper = /usr/local/bin/flynn git-credentials
-[http "https://git.flynn.arnsbomedia.com"]
-	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/arnsbomedia.pem
-[credential "https://git.flynn.arnsbomedia.com"]
-	helper = /usr/local/bin/flynn git-credentials
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[http "https://git.flynn.arnsbomedia.com"]
+	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/arnsbomedia.pem
+[credential "https://git.flynn.arnsbomedia.com"]
+	helper = /usr/local/bin/flynn git-credentials
+[http "https://git.services.fliva.com"]
+	sslCAInfo = /Users/mathiasjakobsen/.flynn/ca-certs/fliva.pem
+[credential "https://git.services.fliva.com"]
+	helper = /usr/local/bin/flynn git-credentials

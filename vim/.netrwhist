@@ -1,2 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/mathiasjakobsen/Work/hodor/.travis'
+let g:netrw_dirhist_2='/Users/mathiasjakobsen/Work/voicearchive-voicefinder/frontend/web/old_css'
+let g:netrw_dirhist_3='/Users/mathiasjakobsen/Work/systemet/.travis'
+let g:netrw_dirhist_4='/Users/mathiasjakobsen/Work/voicearchive-voicefinder/.travis'
+let g:netrw_dirhist_5='/Users/mathiasjakobsen/Work/systemet/.github/workflows'
+let g:netrw_dirhist_6='/Users/mathiasjakobsen/Work/voicearchive-voicefinder/src/server'
+let g:netrw_dirhist_7='/Users/mathiasjakobsen/Work/voicearchive-voicefinder/src/validation'

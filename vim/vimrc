@@ -24,7 +24,7 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-endwise'
-  Plugin 'w0rp/ale'
+  " Plugin 'w0rp/ale'
   Plugin 'wakatime/vim-wakatime'
   Plugin 'ervandew/supertab'
   Plugin 'janko-m/vim-test'
