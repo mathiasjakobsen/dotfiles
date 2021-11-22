@@ -1,5 +1,4 @@
 export LC_ALL=en_US.UTF-8
-export ZSH="/Users/mathiasjakobsen/.oh-my-zsh"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -48,7 +47,6 @@ plugins=(
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
-source $ZSH/oh-my-zsh.sh
 source `brew --prefix`/etc/profile.d/z.sh
 
 autoload -U promptinit; promptinit

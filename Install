@@ -9,10 +9,8 @@ function main {
   setup_vim
   setup_tmux
   setup_zsh
-  setup_oh_my_zsh
   setup_theme
   install_packages
-  install_flynn
 }
 
 function install_rvm {
@@ -22,16 +20,11 @@ function install_rvm {
   fi
 }
 
-function install_flynn {
-  L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
-}
-
 function setup_oh_my_zsh {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 function setup_theme {
-  yarn global add pure-prompt
   open "Snazzy.itermcolors"
 }
 
@@ -78,15 +71,10 @@ function install_packages {
   symlink "$DOTFILES/vim/vimrc" ".vimrc"
   symlink "$DOTFILES/vim/gvimrc" ".gvimrc"
   symlink "$DOTFILES/vim" ".vim"
-  symlink "$DOTFILES/zsh/extensions/plugins/mathiasjakobsen" ".oh-my-zsh/plugins/mathiasjakobsen"
-  symlink "$DOTFILES/zsh/extensions/themes/mathiasjakobsen.zsh-theme" ".oh-my-zsh/themes/mathiasjakobsen.zsh-theme"
-  symlink "$DOTFILES/zsh/extensions/themes/honukai.zsh-theme" ".oh-my-zsh/themes/honukai.zsh-theme"
   symlink "$DOTFILES/zsh/zshrc" ".zshrc"
   symlink "$DOTFILES/zsh/zshenv" ".zshenv"
   symlink "$DOTFILES/zsh/profile" ".profile"
   symlink "$DOTFILES/bin" "bin"
-  symlink "Google Drev/Apps Sync/Dotfiles/ssh" ".ssh"
-  symlink "Google Drev/Apps Sync/Dotfiles/zsh_history" ".zsh_history"
 }
 
 function symlink() {
