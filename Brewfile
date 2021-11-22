@@ -38,6 +38,7 @@ binaries=(
   php@7.4
   phpunit
   postgresql
+  pure
   rbenv
   readline
   redis
