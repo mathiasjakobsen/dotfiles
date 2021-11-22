@@ -70,9 +70,8 @@ function install_packages {
   symlink "$DOTFILES/tmux/dottmux" ".tmux"
   symlink "$DOTFILES/vim/vimrc" ".vimrc"
   symlink "$DOTFILES/vim/gvimrc" ".gvimrc"
-  symlink "$DOTFILES/vim" ".vim"
-  symlink "$DOTFILES/zsh/zshrc" ".zshrc"
-  symlink "$DOTFILES/zsh/zshenv" ".zshenv"
+  symlink "$DOTFILES/vim/dotvim" ".vim"
+  symlink "$DOTFILES/zshrc" ".zshrc"
   symlink "$DOTFILES/zsh/profile" ".profile"
   symlink "$DOTFILES/bin" "bin"
 }

@@ -44,9 +44,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 source `brew --prefix`/etc/profile.d/z.sh
 
 autoload -U promptinit; promptinit
