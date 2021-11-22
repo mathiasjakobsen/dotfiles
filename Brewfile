@@ -1,82 +1,61 @@
 #!/bin/bash
 
 if ! type "brew" > /dev/null; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew update
-brew upgrade            # Upgrade any already-installed formulae
-
-brew tap homebrew/homebrew-php
-
-brew install go --cross-compile-all
+brew upgrade
 
 binaries=(
   bash
-  cmake
+  ca-certificates
   composer
   coreutils
-  elixir
-  erlang
+  curl
+  curl-openssl
+  docker-compose
+  docker-machine
   ffmpeg
-  findutils
   flac
-  fpp
-  gcc
-  gd
+  fzf
+  gh
   git
-  gitstats
-  glib
-  gor
-  gpg-agent
+  git-extras
+  go
   grep
   htop
-  hub
   imagemagick
-  jpeg
+  imap@7.4
+  jq
   lame
-  lua
-  mas
+  make
+  mdcat
   memcached
-  mongodb
   mysql
   nginx
   nmap
-  node
-  openssl
-  phantomjs
-  php56
-  php56-mcrypt
-  php56-memcache
-  php56-xdebug
-  php72
-  php72-memcached
-  php72-xdebug
+  php@7.4
   phpunit
-  ponyc
   postgresql
-  pqiv
-  python
-  python3
-  qcachegrind
+  rbenv
+  readline
   redis
-  ruby
+  ruby-build
   sox
   sqlite
-  the_silver_searcher
-  thefuck
+  telnet
   tmux
   tor
   tree
   vim
   wget
   x264
-  xvid
-  yarn
+  x265
   z
   zsh
+  zsh-autosuggestions
   zsh-syntax-highlighting
-  cloc
 )
 
 for i in "${binaries[@]}"
@@ -85,5 +64,4 @@ do
 done
 
 
-brew linkapps
 brew cleanup
