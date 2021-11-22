@@ -1,5 +1,0 @@
-user: mathias
-login: mathias@arnsbomedia.com
-password-source: keyring
-endpoint: https://loyalitetsbureauet.atlassian.net
-editor: vim
