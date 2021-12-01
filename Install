@@ -5,12 +5,23 @@ ROOT=${1:-~}
 
 function main {
   test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
+  setup_ssh
   install_rvm
   setup_vim
   setup_tmux
   setup_zsh
   setup_theme
   install_packages
+}
+
+
+function setup_ssh {
+  if [ ! -f ~/.ssh/id_rsa ]; then
+    echo "SSH (id_rsa) not found" >&2
+    exit 1
+  fi
+
+  ssh-add -K ~/.ssh/id_rsa
 }
 
 function install_rvm {

@@ -18,6 +18,7 @@ call vundle#begin()
   Plugin 'airblade/vim-gitgutter'
   Plugin 'gmarik/Vundle.vim'
   Plugin 'itchyny/lightline.vim'
+  Plugin 'junegunn/fzf'
   Plugin 'junegunn/fzf.vim'
   Plugin 'roman/golden-ratio'
   Plugin 'sheerun/vim-polyglot'

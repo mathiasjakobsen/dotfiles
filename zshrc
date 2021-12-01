@@ -35,23 +35,18 @@ plugins=(
   gem
   git
   git-extras
-  osx
+  macos
   rake
   ruby
   rvm
   tmux
   tmuxinator
-  zsh-syntax-highlighting
 )
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 source `brew --prefix`/etc/profile.d/z.sh
-
-autoload -U promptinit; promptinit
-
-prompt pure
 
 
 export NVM_DIR=$HOME/.nvm
@@ -64,3 +59,11 @@ alias npm=' unalias npm;  nvm_load; npm  $@'
 # [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 # export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
+autoload -U promptinit; promptinit
+
+prompt pure

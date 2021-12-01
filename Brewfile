@@ -6,6 +6,8 @@ fi
 
 brew update
 brew upgrade
+brew install --cask docker
+$(brew --prefix)/opt/fzf/install
 
 binaries=(
   bash
@@ -46,6 +48,7 @@ binaries=(
   sox
   sqlite
   telnet
+  the_silver_searcher
   tmux
   tor
   tree
