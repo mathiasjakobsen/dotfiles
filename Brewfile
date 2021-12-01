@@ -6,7 +6,7 @@ fi
 
 brew update
 brew upgrade
-brew install --cask docker
+brew install --cask docker microsoft-teams microsoft-office
 $(brew --prefix)/opt/fzf/install
 
 binaries=(
