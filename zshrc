@@ -10,7 +10,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
-
+# export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
 PATH="/usr/local/opt/ruby/bin:$PATH"
 EDITOR=vim
@@ -26,6 +26,16 @@ alias here='open . '
 alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
 alias readme='grip -b --user=mathiasjakobsen --pass=$GITHUB_TOKEN'
 alias weather='finger aarhus@graph.no'
+
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
 
 plugins=(
   battery
@@ -49,11 +59,9 @@ source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 source `brew --prefix`/etc/profile.d/z.sh
 
 
-export NVM_DIR=$HOME/.nvm
-nvm_load () { . $NVM_DIR/nvm.sh && . $NVM_DIR/bash_completion; }
-alias node='unalias node; nvm_load; node $@'
-alias npm=' unalias npm;  nvm_load; npm  $@'
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # export YVM_DIR=/usr/local/opt/yvm
 # [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
@@ -61,6 +69,8 @@ alias npm=' unalias npm;  nvm_load; npm  $@'
 # eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(rbenv init - zsh)"
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
 

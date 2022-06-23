@@ -8,6 +8,9 @@ let $LANG = 'en_US'
 filetype off
 
 
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
+let g:python2_host_prog = '/usr/bin/python'
+
 
 let mapleader = ","
 
@@ -29,8 +32,21 @@ call vundle#begin()
   Plugin 'wakatime/vim-wakatime'
   Plugin 'ervandew/supertab'
   Plugin 'janko-m/vim-test'
+  Plugin 'vim-vdebug/vdebug'
+  Plugin 'github/copilot.vim'
+  Plugin 'dbakker/vim-projectroot'
 call vundle#end()
 
+let g:vdebug_options = { 'port': 9003 }
+
+# https://www.grzegorowski.com/docker-and-vdebug-for-php-debugging
+let g:rootmarkers = ['.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
+function! SetupDebug()
+  let g:vdebug_options['path_maps'] = {'/app': call('projectroot#get', a:000)}
+  " Hack to override vdebug options
+  source ~/.vim/bundle/vdebug/plugin/vdebug.vim
+endfunction
+autocmd VimEnter * :call SetupDebug()
 
 
 " Open FZF results in Quickfix (Ctrl+A and then Ctrl+Q)
