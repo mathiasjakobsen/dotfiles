@@ -39,7 +39,6 @@ call vundle#end()
 
 let g:vdebug_options = { 'port': 9003 }
 
-# https://www.grzegorowski.com/docker-and-vdebug-for-php-debugging
 let g:rootmarkers = ['.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
 function! SetupDebug()
   let g:vdebug_options['path_maps'] = {'/app': call('projectroot#get', a:000)}
@@ -124,6 +123,10 @@ noremap - <C-W><
 noremap + <C-W>>
 noremap <A-j> <C-W>-
 noremap <A-k> <C-W>+
+
+" Open shortcuts.txt
+nmap <leader>s :e ~/dotfiles/vim/shortcuts.txt<CR>
+
 
 set showcmd                                 " Display incomplete commands
 set showmode                                " Display the mode you're in
