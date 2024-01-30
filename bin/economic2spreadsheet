@@ -1,0 +1,147 @@
+#!/bin/bash
+
+# Function to open URL in the default browser depending on the OS
+open_url() {
+    url=$1
+    case "$(uname)" in
+        "Linux") xdg-open "$url";;
+        "Darwin") open "$url";;
+        *) echo "Platform not supported for opening URLs";;
+    esac
+}
+
+# Check for required number of arguments
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <start-date> <end-date>"
+    echo "Date format: YYYY-MM-DD"
+    exit 1
+fi
+
+# Read start and end dates from arguments
+start_date=$1
+end_date=$2
+
+# Parse start and end dates into components
+IFS='-' read -r start_year start_month start_day <<< "$start_date"
+IFS='-' read -r end_year end_month end_day <<< "$end_date"
+
+# Convert to numbers
+start_year=$(printf "%d" "$start_year")
+start_month=$(printf "%d" "$start_month")
+start_day=$(printf "%d" "$start_day")
+end_year=$(printf "%d" "$end_year")
+end_month=$(printf "%d" "$end_month")
+end_day=$(printf "%d" "$end_day")
+
+# Count the number of iterations (URLs to be opened)
+num_iterations=0
+
+# Iterate over each month between the start and end dates
+while [ "$start_year" -lt "$end_year" ] || [ "$start_year" -eq "$end_year" -a "$start_month" -le "$end_month" ]; do
+    # Format month and day with leading zero if necessary
+    formatted_month=$(printf "%02d" "$start_month")
+    formatted_day=$(printf "%02d" "$start_day")
+    formatted_end_month=$(printf "%02d" "$end_month")
+    formatted_end_day=$(printf "%02d" "$end_day")
+
+    # Construct and open the URL
+    url="https://secure.e-conomic.com/secure/internal-api/xlsx?source=rapport%2Fsaldobalance%2Easp%3Fexcel%3D1%26noget%3D1%26fradato%3D$formatted_day%2D$formatted_month%2D$start_year%26tildato%3D$formatted_end_day%2D$formatted_end_month%2D$end_year%26frakonto%3D%26tilkonto%3D%26visnul%3DTrue%26kassekladde%3DFalse%26vendfortegn%3DFalse%26ikkefrakonto%3D%26ikketilkonto%3D%26fraafdeling%3D%26tilafdeling%3D%26sammenligning%3D1%26visenheder%3DFalse%26enhed%3D%2D1%26reportCoverTemplate%3D%26signee%3D%26signee2%3D%26hideHeadings%3DFalse%26form%2Dtype%3D%26submit%2Dtype%3Dsave&reportTypeExporter=default"
+    open_url "$url"
+
+    # Increment iteration count
+    num_iterations=$((num_iterations + 1))
+
+    # Increment the month
+    start_month=$((start_month + 1))
+
+    # Handle year increment
+    if [ "$start_month" -gt 12 ]; then
+        start_month=1
+        start_year=$((start_year + 1))
+    fi
+done
+
+# Wait for the number of .xlsx files to match the number of iterations
+current_directory=$(pwd)
+num_xlsx_files=$(ls -1 "$current_directory"/*.xlsx 2>/dev/null | wc -l)
+
+while [ "$num_xlsx_files" -lt "$num_iterations" ]; do
+    echo "Waiting for downloads to complete..."
+    sleep 5
+    num_xlsx_files=$(ls -1 "$current_directory"/*.xlsx 2>/dev/null | wc -l)
+done
+
+echo "All files downloaded."
+
+
+
+
+
+
+# Current directory
+input_directory="."
+output_file="combined.csv"
+
+# Check if ssconvert and python are installed
+if ! command -v ssconvert &> /dev/null; then
+    echo "ssconvert could not be found. Please install it first."
+    exit 1
+fi
+
+if ! command -v python3 &> /dev/null; then
+    echo "Python3 is not installed. Please install it first."
+    exit 1
+fi
+
+# Create or clear the output file
+> "$output_file"
+
+# Temporary file for holding extracted columns
+temp_col="temp_column.csv"
+
+# Flag to check if first file is processed
+first_file_processed=false
+
+# Iterate over each .xlsx file in the current directory
+for file in "$input_directory"/*.xlsx; do
+    # Skip if no files are found
+    [ -e "$file" ] || continue
+
+    # Convert .xlsx to .csv
+    csv_file="${file%.xlsx}.csv"
+    ssconvert "$file" "$csv_file"
+
+    # Check if conversion was successful
+    if [ -f "$csv_file" ]; then
+        if [ "$first_file_processed" = false ]; then
+            # Extract columns A and B from the first file
+            python3 -c "import csv; f = open('$csv_file', 'r'); csv_reader = csv.reader(f); [print(','.join(row[0:2])) for row in csv_reader if len(row) > 1]; f.close()" > "$output_file"
+            first_file_processed=true
+        fi
+
+        # Extract column C and store it in a temporary file
+        python3 -c "import csv; f = open('$csv_file', 'r'); csv_reader = csv.reader(f); [print(row[2]) for row in csv_reader if len(row) > 2]; f.close()" > "$temp_col"
+
+        # Check if temporary column file is not empty
+        if [ -s "$temp_col" ]; then
+            # Merge the new column with the existing data
+            # Using paste and awk to align columns correctly
+            paste -d, "$output_file" "$temp_col" | awk -F',' '{for(i=1; i<=NF; i++) if($i=="") $i="NA"}1' OFS=',' > "temp_combined.csv"
+            mv "temp_combined.csv" "$output_file"
+        fi
+    else
+        echo "Conversion failed for $file"
+    fi
+
+    # Optional: remove the intermediate CSV file
+    rm "$csv_file"
+done
+
+# Remove temporary column file
+rm "$temp_col"
+
+# Remove the first four rows from the output file
+tail -n +5 "$output_file" > "temp_final.csv"
+mv "temp_final.csv" "$output_file"
+
+echo "Column C from all .xlsx files combined into $output_file"
