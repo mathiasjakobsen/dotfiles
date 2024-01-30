@@ -102,6 +102,12 @@ temp_col="temp_column.csv"
 # Flag to check if first file is processed
 first_file_processed=false
 
+# Temporary file for holding headers
+headers_file="headers.csv"
+
+# Create or clear the headers file
+> "$headers_file"
+
 # Iterate over each .xlsx file in the current directory
 for file in "$input_directory"/*.xlsx; do
     # Skip if no files are found
@@ -114,20 +120,27 @@ for file in "$input_directory"/*.xlsx; do
     # Check if conversion was successful
     if [ -f "$csv_file" ]; then
         if [ "$first_file_processed" = false ]; then
-            # Extract columns A and B from the first file using csvcut
-            csvcut -c 1,2 "$csv_file" > "$output_file"
+            # Extract columns A and B from the first file using csvcut, starting from the fifth row
+            csvcut -c 1,2 "$csv_file" | tail -n +5 > "$output_file"
             first_file_processed=true
-        fi
 
-        # Extract column C using csvcut and store it in a temporary file
-        csvcut -c 3 "$csv_file" > "$temp_col"
+            # Extract the header (title) from cell A4
+            header=$(csvcut -c 1 "$csv_file" | sed -n '4p')
+            echo "$header" > "$headers_file"
+        else
+            # Extract column C using csvcut and store it in a temporary file, starting from the fifth row
+            csvcut -c 3 "$csv_file" | tail -n +5 > "$temp_col"
 
-        # Check if temporary column file is not empty
-        if [ -s "$temp_col" ]; then
-            # Merge the new column with the existing data
-            # Using paste and awk to align columns correctly
-            paste -d, "$output_file" "$temp_col" | awk -F',' '{for(i=1; i<=NF; i++) if($i=="") $i="NA"}1' OFS=',' > "temp_combined.csv"
-            mv "temp_combined.csv" "$output_file"
+            # Extract the header (title) from cell A4
+            header=$(csvcut -c 1 "$csv_file" | sed -n '4p')
+            echo "$header" >> "$headers_file"
+
+            # Check if temporary column file is not empty
+            if [ -s "$temp_col" ]; then
+                # Merge the new column with the existing data
+                paste -d, "$output_file" "$temp_col" > "temp_combined.csv"
+                mv "temp_combined.csv" "$output_file"
+            fi
         fi
     else
         echo "Conversion failed for $file"
@@ -137,11 +150,12 @@ for file in "$input_directory"/*.xlsx; do
     rm "$csv_file"
 done
 
-# Remove temporary column file
-rm "$temp_col"
-
-# Remove the first four rows from the output file
-tail -n +5 "$output_file" > "temp_final.csv"
+# Merge headers and data
+paste -d, "$headers_file" "$output_file" > "temp_final.csv"
 mv "temp_final.csv" "$output_file"
+
+# Remove temporary files
+rm "$temp_col"
+# rm "$headers_file"
 
 echo "Column C from all .xlsx files combined into $output_file"
