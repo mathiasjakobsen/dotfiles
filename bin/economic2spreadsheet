@@ -49,6 +49,14 @@ while [ "$year" -lt "$end_year" ] || [ "$year" -eq "$end_year" -a "$month" -le "
     url="https://secure.e-conomic.com/secure/internal-api/xlsx?source=rapport%2Fsaldobalance%2Easp%3Fexcel%3D1%26noget%3D1%26fradato%3D$formatted_day%2D$formatted_month%2D$year%26tildato%3D$formatted_end_day%2D$formatted_month%2D$year%26frakonto%3D%26tilkonto%3D%26visnul%3DTrue%26kassekladde%3DFalse%26vendfortegn%3DFalse%26ikkefrakonto%3D%26ikketilkonto%3D%26fraafdeling%3D%26tilafdeling%3D%26sammenligning%3D1%26visenheder%3DFalse%26enhed%3D%2D1%26reportCoverTemplate%3D%26signee%3D%26signee2%3D%26hideHeadings%3DFalse%26form%2Dtype%3D%26submit%2Dtype%3Dsave&reportTypeExporter=default"
     open_url "$url"
 
+    filename="$current_directory/saldobalance.xlsx"
+
+    while [ ! -e "$filename" ]; do
+        sleep 5  # Adjust the sleep duration as needed
+    done
+
+    mv saldobalance.xlsx "$current_directory/$year-$formatted_month.xlsx"
+
     # Increment iteration count
     num_iterations=$((num_iterations + 1))
 
@@ -61,20 +69,6 @@ while [ "$year" -lt "$end_year" ] || [ "$year" -eq "$end_year" -a "$month" -le "
         year=$((year + 1))
     fi
 done
-
-# Wait for the number of .xlsx files to match the number of iterations
-num_xlsx_files=$(ls -1 "$current_directory"/*.xlsx 2>/dev/null | wc -l)
-
-while [ "$num_xlsx_files" -lt "$num_iterations" ]; do
-    echo "Waiting for downloads to complete..."
-    sleep 5
-    num_xlsx_files=$(ls -1 "$current_directory"/*.xlsx 2>/dev/null | wc -l)
-done
-
-echo "All files downloaded."
-
-
-
 
 
 
