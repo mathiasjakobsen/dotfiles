@@ -114,13 +114,13 @@ for file in "$input_directory"/*.xlsx; do
     # Check if conversion was successful
     if [ -f "$csv_file" ]; then
         if [ "$first_file_processed" = false ]; then
-            # Extract columns A and B from the first file
-            python3 -c "import csv; f = open('$csv_file', 'r'); csv_reader = csv.reader(f); [print(','.join(row[0:2])) for row in csv_reader if len(row) > 1]; f.close()" > "$output_file"
+            # Extract columns A and B from the first file using csvcut
+            csvcut -c 1,2 "$csv_file" > "$output_file"
             first_file_processed=true
         fi
 
-        # Extract column C and store it in a temporary file
-        python3 -c "import csv; f = open('$csv_file', 'r'); csv_reader = csv.reader(f); [print(row[2]) for row in csv_reader if len(row) > 2]; f.close()" > "$temp_col"
+        # Extract column C using csvcut and store it in a temporary file
+        csvcut -c 3 "$csv_file" > "$temp_col"
 
         # Check if temporary column file is not empty
         if [ -s "$temp_col" ]; then
