@@ -19,6 +19,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
+alias python="$(pyenv which python)"
+alias pip="$(pyenv which pip)"
 alias c='clear'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias chmodcode='stat -f "%OLp"'
@@ -26,6 +28,8 @@ alias here='open . '
 alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
 alias readme='grip -b --user=mathiasjakobsen --pass=$GITHUB_TOKEN'
 alias weather='finger aarhus@graph.no'
+alias vim='nvim'
+alias db='aws ssm start-session --region eu-central-1 --target i-040ba420f38f4d1e0 --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters host="system.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com",portNumber="3306",localPortNumber="3336"'
 
 listening() {
     if [ $# -eq 0 ]; then

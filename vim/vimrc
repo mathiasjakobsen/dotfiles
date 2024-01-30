@@ -178,3 +178,7 @@ syntax on
 
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+
+:highlight Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
+:highlight PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+
