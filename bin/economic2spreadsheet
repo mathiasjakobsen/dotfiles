@@ -1,5 +1,7 @@
 #!/bin/bash
 
+current_directory=$(pwd)
+
 # Function to open URL in the default browser depending on the OS
 open_url() {
     url=$1
@@ -18,17 +20,17 @@ if [ "$#" -ne 2 ]; then
 fi
 
 # Read start and end dates from arguments
-start_date=$1
+date=$1
 end_date=$2
 
 # Parse start and end dates into components
-IFS='-' read -r start_year start_month start_day <<< "$start_date"
+IFS='-' read -r year month day <<< "$date"
 IFS='-' read -r end_year end_month end_day <<< "$end_date"
 
 # Convert to numbers
-start_year=$(printf "%d" "$start_year")
-start_month=$(printf "%d" "$start_month")
-start_day=$(printf "%d" "$start_day")
+year=$(printf "%d" "$year")
+month=$(printf "%d" "$month")
+day=$(printf "%d" "$day")
 end_year=$(printf "%d" "$end_year")
 end_month=$(printf "%d" "$end_month")
 end_day=$(printf "%d" "$end_day")
@@ -37,32 +39,30 @@ end_day=$(printf "%d" "$end_day")
 num_iterations=0
 
 # Iterate over each month between the start and end dates
-while [ "$start_year" -lt "$end_year" ] || [ "$start_year" -eq "$end_year" -a "$start_month" -le "$end_month" ]; do
+while [ "$year" -lt "$end_year" ] || [ "$year" -eq "$end_year" -a "$month" -le "$end_month" ]; do
     # Format month and day with leading zero if necessary
-    formatted_month=$(printf "%02d" "$start_month")
-    formatted_day=$(printf "%02d" "$start_day")
-    formatted_end_month=$(printf "%02d" "$end_month")
-    formatted_end_day=$(printf "%02d" "$end_day")
+    formatted_month=$(printf "%02d" "$month")
+    formatted_day=$(printf "%02d" "$day")
+    formatted_end_day="$(cal $month $year | awk 'NF {DAYS = $NF} END {print DAYS}')"
 
     # Construct and open the URL
-    url="https://secure.e-conomic.com/secure/internal-api/xlsx?source=rapport%2Fsaldobalance%2Easp%3Fexcel%3D1%26noget%3D1%26fradato%3D$formatted_day%2D$formatted_month%2D$start_year%26tildato%3D$formatted_end_day%2D$formatted_end_month%2D$end_year%26frakonto%3D%26tilkonto%3D%26visnul%3DTrue%26kassekladde%3DFalse%26vendfortegn%3DFalse%26ikkefrakonto%3D%26ikketilkonto%3D%26fraafdeling%3D%26tilafdeling%3D%26sammenligning%3D1%26visenheder%3DFalse%26enhed%3D%2D1%26reportCoverTemplate%3D%26signee%3D%26signee2%3D%26hideHeadings%3DFalse%26form%2Dtype%3D%26submit%2Dtype%3Dsave&reportTypeExporter=default"
+    url="https://secure.e-conomic.com/secure/internal-api/xlsx?source=rapport%2Fsaldobalance%2Easp%3Fexcel%3D1%26noget%3D1%26fradato%3D$formatted_day%2D$formatted_month%2D$year%26tildato%3D$formatted_end_day%2D$formatted_month%2D$year%26frakonto%3D%26tilkonto%3D%26visnul%3DTrue%26kassekladde%3DFalse%26vendfortegn%3DFalse%26ikkefrakonto%3D%26ikketilkonto%3D%26fraafdeling%3D%26tilafdeling%3D%26sammenligning%3D1%26visenheder%3DFalse%26enhed%3D%2D1%26reportCoverTemplate%3D%26signee%3D%26signee2%3D%26hideHeadings%3DFalse%26form%2Dtype%3D%26submit%2Dtype%3Dsave&reportTypeExporter=default"
     open_url "$url"
 
     # Increment iteration count
     num_iterations=$((num_iterations + 1))
 
     # Increment the month
-    start_month=$((start_month + 1))
+    month=$((month + 1))
 
     # Handle year increment
-    if [ "$start_month" -gt 12 ]; then
-        start_month=1
-        start_year=$((start_year + 1))
+    if [ "$month" -gt 12 ]; then
+        month=1
+        year=$((year + 1))
     fi
 done
 
 # Wait for the number of .xlsx files to match the number of iterations
-current_directory=$(pwd)
 num_xlsx_files=$(ls -1 "$current_directory"/*.xlsx 2>/dev/null | wc -l)
 
 while [ "$num_xlsx_files" -lt "$num_iterations" ]; do
@@ -78,8 +78,6 @@ echo "All files downloaded."
 
 
 
-# Current directory
-input_directory="."
 output_file="combined.csv"
 
 # Temporary file for holding extracted columns
@@ -94,7 +92,7 @@ first_file_processed=false
 headers=""
 
 # Iterate over each .xlsx file in the current directory
-for file in "$input_directory"/*.xlsx; do
+for file in "$current_directory"/*.xlsx; do
     # Skip if no files are found
     [ -e "$file" ] || continue
 
@@ -113,18 +111,18 @@ for file in "$input_directory"/*.xlsx; do
             first_file_processed=true
             # Prepare the headers file with the first header and an empty placeholder for the second column
             headers="$headers, "
-        else
-            # Extract column C using csvcut and store it in a temporary file, starting from the fifth row
-            csvcut -c 3 "$csv_file" | tail -n +5 > "$temp_col"
-            # Append the header for this column to the headers file
-            headers="$headers, $header"
+        fi
 
-            # Check if temporary column file is not empty
-            if [ -s "$temp_col" ]; then
-                # Merge the new column with the existing data
-                paste -d, "$output_file" "$temp_col" > "temp_combined.csv"
-                mv "temp_combined.csv" "$output_file"
-            fi
+        # Extract column C using csvcut and store it in a temporary file, starting from the fifth row
+        csvcut -c 3 "$csv_file" | tail -n +5 > "$temp_col"
+        # Append the header for this column to the headers file
+        headers="$headers, $header"
+
+        # Check if temporary column file is not empty
+        if [ -s "$temp_col" ]; then
+            # Merge the new column with the existing data
+            paste -d, "$output_file" "$temp_col" > "temp_combined.csv"
+            mv "temp_combined.csv" "$output_file"
         fi
     else
         echo "Conversion failed for $file"
