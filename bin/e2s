@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <start_date> <end_date>"
+  exit 1
+fi
+
+# Function to format a date to have leading zeros
+format_date() {
+  printf "%02d" $1
+}
+
+# Parse the start and end dates
+start_date=$1
+end_date=$2
+
+# Initialize variables
+current_date="$start_date"
+iteration=1
+
+# Create a directory to store the Excel files
+mkdir -p xlsx_files
+
+# Combine XLSX files into one
+combine_xlsx() {
+  output_file="combined.xlsx"
+  header_file="header.xlsx"
+
+  # Initialize the combined dataframe with the header from the first XLSX file
+  header_df=$(head -n 1 "$header_file")
+  echo "$header_df" > "$output_file"
+
+  # Directory containing XLSX files
+  xlsx_directory="xlsx_files"
+
+  # Iterate through XLSX files and combine column C
+  for filename in "$xlsx_directory"/*.xlsx; do
+    if [ -f "$filename" ]; then
+      df=$(tail -n +2 "$filename" | cut -f3)
+      echo "$df" >> "$output_file"
+    fi
+  done
+
+  echo "Combined XLSX files into $output_file"
+}
+
+# Trap to clean up downloaded XLSX files on script exit
+cleanup() {
+  rm -rf xlsx_files
+  exit
+}
+
+trap cleanup EXIT
+
+# Loop through the months between start and end dates
+while [ "$current_date" != "$end_date" ]; do
+  year=$(date -j -f "%Y-%m-%d" "$current_date" "+%Y")
+  month=$(date -j -f "%Y-%m-%d" "$current_date" "+%m")
+  first_day="${year}-$(format_date $month)-01"
+  last_day="${year}-$(format_date $month)-$(cal $month $year | awk 'NF {DAYS = $NF} END {print DAYS}')"
+
+  # Generate the URL with the formatted dates
+  url="https://secure.e-conomic.com/secure/internal-api/xlsx?source=rapport%2Fsaldobalance%2Easp%3Fexcel%3D1%26noget%3D1%26fradato%3D$first_day%2D$month%2D$year%26tildato%3D$last_day%2D$month%2D$year%26frakonto%3D%26tilkonto%3D%26visnul%3DTrue%26kassekladde%3DFalse%26vendfortegn%3DFalse%26ikkefrakonto%3D%26ikketilkonto%3D%26fraafdeling%3D%26tilafdeling%3D%26sammenligning%3D1%26visenheder%3DFalse%26enhed%3D%2D1%26reportCoverTemplate%3D%26signee%3D%26signee2%3D%26hideHeadings%3DFalse%26form%2Dtype%3D%26submit%2Dtype%3Dsave&reportTypeExporter=default"
+
+  # Open the URL in the default browser
+  open "$url"
+
+  # Wait for the XLSX file to download
+  while [ "$(ls xlsx_files | wc -l)" -lt "$iteration" ]; do
+    sleep 5
+  done
+
+  iteration=$((iteration + 1))
+  current_date=$(date -j -v+1m -f "%Y-%m-%d" "$current_date" "+%Y-%m-%d")
+done
+
+# Combine the downloaded XLSX files into one
+combine_xlsx

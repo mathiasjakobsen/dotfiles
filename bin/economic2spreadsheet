@@ -131,10 +131,34 @@ headers_file="headers.csv"
 > "$headers_file"
 echo $headers > $headers_file
 
-cat "$headers_file" "$output_file" > "temp_final.csv"
-mv "temp_final.csv" "$output_file"
+comma_seperated_file="comma_seperated.csv"
+semicolon_seperated_file="semicolon_seperated.csv"
+
+cat "$headers_file" "$output_file" > "$comma_seperated_file"
+
+# Use Python to process CSV file and replace commas with semicolons
+python3 - <<EOF
+import csv
+
+input_file = "$comma_seperated_file"
+output_file = "$semicolon_seperated_file"
+
+with open(input_file, mode='r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    with open(output_file, mode='w', newline='') as semicolon_csv_file:
+        csv_writer = csv.writer(semicolon_csv_file, delimiter=';')
+        for row in csv_reader:
+            csv_writer.writerow(row)
+
+print("Conversion completed. Output saved to " + output_file)
+EOF
+
+cat $semicolon_seperated_file | tr '.' ',' > "$output_file"
+
 
 # Remove temporary files
+rm "$semicolon_seperated_file"
+rm "$comma_seperated_file"
 rm "$temp_col"
 rm "$headers_file"
 

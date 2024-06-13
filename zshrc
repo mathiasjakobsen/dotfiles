@@ -29,7 +29,24 @@ alias httpcode="curl -o /dev/null --silent --head --write-out '%{http_code}\n'"
 alias readme='grip -b --user=mathiasjakobsen --pass=$GITHUB_TOKEN'
 alias weather='finger aarhus@graph.no'
 alias vim='nvim'
-alias db='aws ssm start-session --region eu-central-1 --target i-040ba420f38f4d1e0 --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters host="system.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com",portNumber="3306",localPortNumber="3336"'
+# alias db='aws ssm start-session --region eu-central-1 --target i-02b6a9d670817de8f --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters host="system.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com",portNumber="3306",localPortNumber="3336"'
+
+aws_db() {
+  bastion=$1
+  host=$2
+  port=$3
+  localPort=$4
+  target=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$bastion" --query "Reservations[*].Instances[*].InstanceId" --output text)
+  echo "$host tunneled from port $port to local port $localPort"
+  aws ssm start-session --region eu-central-1 --target $target --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters host="$host",portNumber="$port",localPortNumber="$localPort"
+}
+
+
+alias db_ame='aws_db "BastionHost" "system.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 3306 3331'
+alias db_vt='aws_db "Bastion2Host" "voicetools-23may2024-0400.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 5432 3332'
+alias db_ls='aws_db "Bastion2Host" "livesession-23may2024-0400.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 5432 3333'
+
+
 
 listening() {
     if [ $# -eq 0 ]; then

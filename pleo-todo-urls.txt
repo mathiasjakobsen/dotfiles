@@ -1,0 +1,9 @@
+https://cloud.mongodb.com/v2#/org/64ccfbcc4aa47345ac657bcb/billing/paymentHistory
+https://voicearchive.signrequest.com/#/billing
+https://identity.getpostman.com/login?continue=https%3A%2F%2Fgo.postman.co%2Fbilling%2Finvoices&intent=switch-account&target_team=voicearchive
+https://www.3.dk/selvbetjening/regning/
+https://mofibo.com/dk/da/login?redirectUrl=https%3A%2F%2Fmyaccount.mofibo.com%2Fdk%2Fda%2Faccount%2Fbilling-history
+https://app.fireflies.ai/settings/billing
+https://www.figma.com/files/team-admin-console/1012618623176648387/VoiceArchive-Admin-Console/billing
+https://my.wpengine.com/my_account
+https://pay.openai.com/p/session/live_YWNjdF8xSE9yU3dDNmgxbnhHb0kzLF9QZnpVUVB0VlljVnhxUzBjclR4NTZWcUtnYUJZNThE0100c0cQxZ6I
