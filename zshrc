@@ -42,7 +42,7 @@ aws_db() {
 }
 
 
-alias db_ame='aws_db "BastionHost" "system.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 3306 3331'
+alias db_ame='aws_db "Bastion2Host" "system-blue.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 3306 3331'
 alias db_vt='aws_db "Bastion2Host" "voicetools-23may2024-0400.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 5432 3332'
 alias db_ls='aws_db "Bastion2Host" "livesession-23may2024-0400.c1es6mhn5vxz.eu-central-1.rds.amazonaws.com" 5432 3333'
 
