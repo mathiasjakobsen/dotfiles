@@ -18,7 +18,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
-  Plugin 'airblade/vim-gitgutter'
+  " Plugin 'airblade/vim-gitgutter'
   Plugin 'gmarik/Vundle.vim'
   Plugin 'itchyny/lightline.vim'
   Plugin 'junegunn/fzf'
@@ -30,22 +30,13 @@ call vundle#begin()
   Plugin 'tpope/vim-endwise'
   Plugin 'w0rp/ale'
   Plugin 'wakatime/vim-wakatime'
-  Plugin 'ervandew/supertab'
+  " Plugin 'ervandew/supertab'
   Plugin 'janko-m/vim-test'
-  Plugin 'vim-vdebug/vdebug'
   Plugin 'github/copilot.vim'
   Plugin 'dbakker/vim-projectroot'
 call vundle#end()
 
-let g:vdebug_options = { 'port': 9003 }
-
 let g:rootmarkers = ['.projectroot', 'docker-compose.yml', '.git', '.hg', '.svn', '.bzr','_darcs','build.xml']
-function! SetupDebug()
-  let g:vdebug_options['path_maps'] = {'/app': call('projectroot#get', a:000)}
-  " Hack to override vdebug options
-  source ~/.vim/bundle/vdebug/plugin/vdebug.vim
-endfunction
-autocmd VimEnter * :call SetupDebug()
 
 
 " Open FZF results in Quickfix (Ctrl+A and then Ctrl+Q)
@@ -130,7 +121,7 @@ nmap <leader>s :e ~/dotfiles/vim/shortcuts.txt<CR>
 
 set showcmd                                 " Display incomplete commands
 set showmode                                " Display the mode you're in
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 set backspace=indent,eol,start              " Intuitive backspacing
 set hidden                                  " Handle multiple buffers better
 set wildmenu                                " Enhanced command line completion
