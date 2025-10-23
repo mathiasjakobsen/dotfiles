@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Check if a directory is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 /path/to/directory"
+    exit 1
+fi
+
+BASE_DIR="$1"
+
+# Convert absolute path to avoid issues with relative paths
+BASE_DIR="$(cd "$BASE_DIR" && pwd)"
+
+# Create the organized output directory
+OUTPUT_DIR="${BASE_DIR}_organized"
+mkdir -p "$OUTPUT_DIR"
+
+# Function to process files recursively
+process_files() {
+    local dir="$1"
+    find "$dir" -type f | while IFS= read -r file; do
+        # Get file extension (lowercase)
+        ext="${file##*.}"
+        ext="${ext,,}" # Convert to lowercase (bash 4+)
+
+        # If there's no extension, use "no_extension"
+        [ "$ext" = "$file" ] && ext="no_extension"
+
+        # Replace slashes in file path with underscores
+        new_name="${file//$BASE_DIR\//}"  # Remove base dir prefix
+        new_name="${new_name//\//_}"      # Replace slashes with underscores
+
+        # Create target directory for this file type
+        target_dir="$OUTPUT_DIR/$ext"
+        mkdir -p "$target_dir"
+
+        # Move and rename the file
+        mv "$file" "$target_dir/$new_name"
+    done
+}
+
+# Run the function on the base directory
+process_files "$BASE_DIR"
+
+echo "Files organized in: $OUTPUT_DIR"

@@ -98,3 +98,13 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 
 prompt pure
+
+# pnpm
+export PNPM_HOME="/Users/mathiasjakobsen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+. "$HOME/.local/bin/env"
